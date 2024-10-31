@@ -55,6 +55,8 @@ const SideBar: React.FC<SideBarProps> = ({ elements, onSelect }) => {
                     <Image
                       src={faMinus}
                       alt={`faMinus icon`}
+                      width={24}
+                      height={24}
                     />
                   </div>
                   <Link href="#">
@@ -73,6 +75,8 @@ const SideBar: React.FC<SideBarProps> = ({ elements, onSelect }) => {
                         <Image
                           src={faMinus}
                           alt={`faMinus icon`}
+                          width={16}
+                          height={16}
                         />
                         <Link
                           href={`${
