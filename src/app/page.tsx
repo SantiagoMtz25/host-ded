@@ -1,101 +1,83 @@
-import Image from "next/image";
+
+import NavCard from "./components/NavCard";
+import homedata from "../../public/homedata.json";
+import FooterComponent from "./components/Footer";
+import NavBar from "./components/NavBar";
+
+interface Course {
+  title: string;
+  description: string;
+  path: string;
+  icon: string;
+}
+
+const iconMap: { [key: string]: string } = {
+  "fa-solid fa-brain": "/icons/faBrain.svg",
+  "fa-solid fa-book": "/icons/faBook.svg",
+  "fa-solid fa-calculator": "/icons/faCalculator.svg",
+};
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+  const courses: Course[] = homedata.courses.flatMap((course) =>
+    Object.values(course)
+  );
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+  const title: string[] = homedata.title;
+  const description: string[] = homedata.description;
+
+  return (
+    <div className="flex flex-col justify-center">
+      <div className="w-full lg:max-w-[1120px] self-center">
+        <NavBar />
+      </div>
+      <div className="h-56 lg:px-3 flex flex-1 justify-center mb-6">
+        <div className="layout-content-container lg:w-[90%] max-w-[1120px] flex flex-col flex-1">
+          {/* <LandingCarousel
+            showFullDescription={showFullDescription}
+            setShowFullDescription={setShowFullDescription}
+            title={title}
+            description={description}
+            imageURL={imageUrls}
+          /> */}
+          <div className="@container">
+            <div className="@[480px]:p-4">
+              <div
+                className="flex min-h-[70vh] md:min-h-[60vh] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10 rounded-2xl"
+                style={{
+                  backgroundImage: `linear-gradient(90deg, rgba(0,0,0,1) 1%, rgba(145,145,145,0.5019257703081232) 98%, rgba(255,255,255,0) 100%), url(/images/shutterstock_2404300609.jpg)`,
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  backgroundSize: "cover",
+                }}
+              >
+                <div className="flex flex-col gap-2 text-left pl-2 sm:w-3/4 md:w-3/4 lg:w-3/5">
+                  <h1 className="text-gray-200 text-4xl md:text-4xl lg:text-5xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]">
+                    {title}
+                  </h1>
+                  <h2 className="text-white font-extralight leading-6 @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                    {description}
+                  </h2>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-row flex-wrap gap-3 justify-center px-3 lg:px-0 lg:justify-between pb-3 py-5">
+            {courses.map((course, index) => (
+              <NavCard
+                num={index + 1}
+                key={index}
+                title={course.title}
+                description={course.description}
+                path={course.path}
+                icon={iconMap[course.icon]}
+              />
+            ))}
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      </div>
+
+      <FooterComponent />
     </div>
   );
 }
