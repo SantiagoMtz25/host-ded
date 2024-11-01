@@ -1,0 +1,12 @@
+{
+  "topic": "Datos graficados",
+  "exampleQuestion": "¿Cuáles son los bimestres en los que Mónica obtuvo mejor calificación que Miguel?",
+  "exampleOptions": [
+    "a) 2º, 5º, 4º",
+    "b) 3º, 4º, 2º",
+    "c) 1º, 3º, 4º",
+    "d) 5º, 1º, 4º"
+  ],
+  "answer": 2,
+  "imageURL": "/images/datosgraficados.gif"
+}
