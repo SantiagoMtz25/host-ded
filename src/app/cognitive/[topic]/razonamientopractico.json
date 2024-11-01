@@ -1,0 +1,12 @@
+{
+  "topic": "Razonamiento Práctico",
+  "exampleQuestion": "¿Quién le gusta a Cecilia?",
+  "exampleOptions": [
+    "a) Gabriel",
+    "b) Raúl",
+    "c) Jorge",
+    "d) Fernando"
+  ],
+  "answer": 2,
+  "imageURL": ""
+}

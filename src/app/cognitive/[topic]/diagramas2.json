@@ -1,0 +1,12 @@
+{
+  "topic": "Diagramas de Venn 2",
+  "exampleQuestion": "¿En qué sector se ubican las actividades de Liz?",
+  "exampleOptions": [
+    "a) 7",
+    "b) 6",
+    "c) 5",
+    "d) 4"
+  ],
+  "answer": 3,
+  "imageURL": "/images/diag2_ej.gif"
+}
