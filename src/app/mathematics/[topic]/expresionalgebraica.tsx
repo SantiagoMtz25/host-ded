@@ -54,13 +54,13 @@ const ExpresionAlgebraicaPage: React.FC = () => {
       </p>
       <div className="grid grid-cols-2 gap-4 p-4 bg-gray-100 mt-4">
         {/* Row 1: Headers */}
-        <div className="bg-green-700 text-white font-bold p-2">
+        <div className="bg-[#afdceb] font-bold p-2">
           Signos en las operaciones suma y/o resta
         </div>
-        <div className="bg-green-700 text-white font-bold p-2">Ejemplo</div>
+        <div className="bg-[#afdceb] font-bold p-2">Ejemplo</div>
 
         {/* Row 2: Addition and Subtraction Rules */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>
             El signo del resultado será el signo del número con mayor valor
             absoluto.
@@ -72,7 +72,7 @@ const ExpresionAlgebraicaPage: React.FC = () => {
         </div>
 
         {/* Row 3: Same Sign Addition */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>
             Si los signos de los dos números son iguales, el resultado tiene el
             signo que lleven los números.
@@ -84,7 +84,7 @@ const ExpresionAlgebraicaPage: React.FC = () => {
         </div>
 
         {/* Row 4: Multiplication Sign Rules */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           Signos en la multiplicación
         </div>
         <div className="border p-4">
@@ -99,7 +99,7 @@ const ExpresionAlgebraicaPage: React.FC = () => {
         </div>
 
         {/* Row 5: Same Sign Multiplication */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>
             La multiplicación de números con signos iguales da resultado
             positivo (+).

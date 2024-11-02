@@ -7,11 +7,13 @@ type QuestionProps = {
   question: string;
   options: string[];
   answer: number; //index of the correct answer
+  explanation?: string;
 };
 
 export interface QuizComponentProps {
   title: string;
   description: string;
+  questionDescription?: string;
   questions: QuestionProps[];
 }
 

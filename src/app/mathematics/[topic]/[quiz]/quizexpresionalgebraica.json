@@ -1,0 +1,215 @@
+{
+  "title": "Evaluación de Expresiones Matemáticas",
+  "description": "Selecciona el inciso que contiene el valor correcto de la expresión dada con los valores proporcionados.",
+  "questions": [
+    {
+      "question": "El inciso que tiene el valor de la expresión para a = -3; b = 6 es:",
+      "options": [
+        "2",
+        "-2",
+        "1",
+        "-1"
+      ],
+      "answer": 0,
+      "explanation": "La evaluación da un resultado de 2."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión para w = 4; y = -6 es:",
+      "options": [
+        "-7",
+        "7",
+        "-8",
+        "8"
+      ],
+      "answer": 3,
+      "explanation": "La evaluación da un resultado de 8."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión para x = 5; y = 3 es:",
+      "options": [
+        "4",
+        "3",
+        "-4",
+        "-3"
+      ],
+      "answer": 1,
+      "explanation": "La evaluación da un resultado de 3."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión para w = -2; z = -2 es:",
+      "options": [
+        "-17",
+        "17",
+        "-20",
+        "20"
+      ],
+      "answer": 0,
+      "explanation": "La evaluación da un resultado de -17."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión para m = -2; n = 2 es:",
+      "options": [
+        "4",
+        "3",
+        "-4",
+        "-3"
+      ],
+      "answer": 2,
+      "explanation": "La evaluación da un resultado de -4."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión para d = 3; f = 4 es:",
+      "options": [
+        "1",
+        "0",
+        "-1",
+        "3"
+      ],
+      "answer": 1,
+      "explanation": "La evaluación da un resultado de 0."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión para a = 6; b = 1 es:",
+      "options": [
+        "-1",
+        "-3",
+        "2",
+        "1"
+      ],
+      "answer": 3,
+      "explanation": "La evaluación da un resultado de 1."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión para m = 2; n = 7 es:",
+      "options": [
+        "2",
+        "1",
+        "-2",
+        "-1"
+      ],
+      "answer": 2,
+      "explanation": "La evaluación da un resultado de -2."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión para k = 2; h = 5 es:",
+      "options": [
+        "3",
+        "-1",
+        "-3",
+        "1"
+      ],
+      "answer": 1,
+      "explanation": "La evaluación da un resultado de -1."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión x⁴ + y³ para x = -2; y = -2 es:",
+      "options": [
+        "24",
+        "32",
+        "-8",
+        "8"
+      ],
+      "answer": 3,
+      "explanation": "La evaluación da un resultado de 8."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión m⁵ - n⁴ para m = 2; n = 3 es:",
+      "options": [
+        "-49",
+        "49",
+        "5",
+        "-5"
+      ],
+      "answer": 0,
+      "explanation": "La evaluación da un resultado de -49."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión w² + z³ para w = 6; z = -4 es:",
+      "options": [
+        "0",
+        "24",
+        "-28",
+        "28"
+      ],
+      "answer": 2,
+      "explanation": "La evaluación da un resultado de -28."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión a³ - b² para a = 5; b = -7 es:",
+      "options": [
+        "-76",
+        "76",
+        "174",
+        "-174"
+      ],
+      "answer": 1,
+      "explanation": "La evaluación da un resultado de 76."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión h⁴ + k² para h = 2; k = -2 es:",
+      "options": [
+        "12",
+        "-12",
+        "20",
+        "-20"
+      ],
+      "answer": 2,
+      "explanation": "La evaluación da un resultado de 20."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión r³ - p⁴ para r = -2; p = -1 es:",
+      "options": [
+        "-9",
+        "9",
+        "7",
+        "-7"
+      ],
+      "answer": 0,
+      "explanation": "La evaluación da un resultado de -9."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión a³ - b² para a = 0; b = -5 es:",
+      "options": [
+        "26",
+        "-26",
+        "25",
+        "-25"
+      ],
+      "answer": 3,
+      "explanation": "La evaluación da un resultado de -25."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión s⁴ - t⁵ para s = 2; t = 1 es:",
+      "options": [
+        "15",
+        "-15",
+        "17",
+        "-17"
+      ],
+      "answer": 0,
+      "explanation": "La evaluación da un resultado de 15."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión f⁵ - g³ para f = -2; g = -2 es:",
+      "options": [
+        "-40",
+        "40",
+        "24",
+        "-24"
+      ],
+      "answer": 3,
+      "explanation": "La evaluación da un resultado de -24."
+    },
+    {
+      "question": "El inciso que tiene el valor de la expresión k⁶ + h para k = -1; h = -5 es:",
+      "options": [
+        "4",
+        "-4",
+        "6",
+        "-6"
+      ],
+      "answer": 1,
+      "explanation": "La evaluación da un resultado de -4."
+    }
+  ]
+}

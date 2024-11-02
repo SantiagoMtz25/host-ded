@@ -1,14 +1,20 @@
+"use client";
+
 import React from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 interface NavBarProps {
   title?: string;
 }
 
 const NavBar: React.FC<NavBarProps> = ({ }) => {
+  const pathname = usePathname();
+  const imageAlign = pathname === "/" ? "items-center" : "items-end";
+
   return (
     <>
-      <header className="flex flex-col md:flex-row items-center justify-between content-between whitespace-nowrap  border-solid border-b-[#abb0b5] px-5 py-3 self-center">
+      <header className={`flex flex-col md:flex-row ${imageAlign} md:items-center justify-between content-between whitespace-nowrap  border-solid border-b-[#abb0b5] px-5 py-3 self-center`}>
         {/* <div className="flex items-center gap-4 text-[#0d151c]">
           <div className="size-4">
             <svg

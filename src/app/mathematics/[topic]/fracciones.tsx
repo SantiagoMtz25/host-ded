@@ -58,16 +58,16 @@ const FraccionesPage: React.FC = () => {
       </p>
       <div className="grid grid-cols-2 gap-4 p-4 bg-gray-100 mt-4">
         {/* Row 1: Headers */}
-        <div className="bg-green-700 text-white font-bold p-2 text-center">
+        <div className="bg-[#afdceb] text-white font-bold p-2 text-center">
           Conceptos
         </div>
-        <div className="bg-green-700 text-white font-bold p-2 text-center">
+        <div className="bg-[#afdceb] text-white font-bold p-2 text-center">
           Operaciones fundamentales
         </div>
 
         {/* Row 2: Concepts List */}
-        <div className="border p-4 bg-green-100">
-          <ul className="list-disc list-inside text-green-800">
+        <div className="border p-4 bg-[#cae9f5]">
+          <ul className="list-disc list-inside">
             <li>Algoritmo</li>
             <li>Fracción</li>
             <li>Fracción propia</li>
@@ -78,8 +78,8 @@ const FraccionesPage: React.FC = () => {
         </div>
 
         {/* Row 3: Fundamental Operations List */}
-        <div className="border p-4 bg-green-100">
-          <ul className="list-disc list-inside text-green-800">
+        <div className="border p-4 bg-[#cae9f5]">
+          <ul className="list-disc list-inside">
             <li>Multiplicación</li>
             <li>División</li>
             <li>Suma y/o resta</li>

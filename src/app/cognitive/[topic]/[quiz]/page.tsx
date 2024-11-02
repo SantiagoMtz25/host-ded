@@ -5,18 +5,25 @@ import { usePathname } from "next/navigation";
 import { QuizComponentProps } from "../../../components/Quiz";
 import QuizComponent from "../../../components/Quiz";
 import QuizAnalogiaJSON from "./quizanalogia.json";
-
+import QuizDiagramas1JSON from "./quizdiagramas1.json";
+import QuizDiagramas2JSON from "./quizdiagramas2.json";
+import QuizMetaforasYAnalogiasJSON from "./quizmetaforayanalogia.json";
+import QuizRazonamientoCondicionalJSON from "./razcondicional.json";
+import QuizRazonamientoPracticoJSON from "./razpractico.json";
+import QuizSecuenciasYMatricesJSON from "./secymatrices.json";
+import QuizSignificadoDeMetaforasJSON from "./significadometaforas.json";
+import QuizTransformacionesLogicasJSON from "./translogicas.json";
 
 const quizesMap: { [key: string]: QuizComponentProps } = {
   quizanalogia: QuizAnalogiaJSON,
-  /*   'quizdiagramas1': QuizDiagramas1JSON,
-  'quizdiagramas2': QuizDiagramas2JSON,
-  'quizmetaforasyanalogias': QuizMetaforasYAnalogiasJSON,
-  'quizrazcondicional': QuizRazonamientoCondicionalJSON,
-  'quizrazpractico': QuizRazonamientoPracticoJSON,
-  'quizsecuenciasymatrices': QuizSecuenciasYMatricesJSON,
-  'quizsignificadometaforas': QuizSignificadoDeMetaforasJSON,
-  'quiztransformacioneslogicas': QuizTransformacionesLogicasJSON */
+  'quizdiagramas-1': QuizDiagramas1JSON,
+  'quizdiagramas-2': QuizDiagramas2JSON,
+  'quizmetaforas-y-analogias': QuizMetaforasYAnalogiasJSON,
+  'quizrazonamiento-condicional': QuizRazonamientoCondicionalJSON,
+  'quizrazonamiento-practico': QuizRazonamientoPracticoJSON,
+  'quizsecuencias-y-matrices': QuizSecuenciasYMatricesJSON,
+  'quizsignificado-de-metaforas': QuizSignificadoDeMetaforasJSON,
+  'quiztransformaciones-logicas': QuizTransformacionesLogicasJSON 
 };
 
 const QuizPage: React.FC = () => {

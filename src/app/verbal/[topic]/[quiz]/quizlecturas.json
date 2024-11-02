@@ -1,0 +1,105 @@
+{
+  "title": "Comprensión de Lecturas",
+  "description": "Selecciona la respuesta correcta basada en la comprensión de los textos proporcionados.",
+  "questions": [
+    {
+      "question": "El lector se entera de la Heroicidad de los personajes a través de:",
+      "options": [
+        "El concluyente significado de las frases célebres.",
+        "Los minuciosos detalles de la lucha.",
+        "Las heridas sufridas por los derrotados.",
+        "El terreno ganado por los invasores."
+      ],
+      "answer": 0,
+      "explanation": "El significado concluyente de las frases célebres permite apreciar la heroicidad de los personajes."
+    },
+    {
+      "question": "El autor utiliza la palabra 'huestes' para referirse a:",
+      "options": [
+        "A los habitantes del Convento.",
+        "Los cañones de los invasores.",
+        "Los que se hospedaban en el Convento.",
+        "El ejército en campaña."
+      ],
+      "answer": 3,
+      "explanation": "El término 'huestes' se usa para indicar el ejército en campaña."
+    },
+    {
+      "question": "De la lectura se infiere que los defensores del Convento:",
+      "options": [
+        "Entregaron el Convento sin luchar.",
+        "Lucharon ferozmente con el invasor.",
+        "No siguieron las órdenes de su General.",
+        "Sintieron miedo porque no tenían parque."
+      ],
+      "answer": 1,
+      "explanation": "Los defensores lucharon ferozmente contra el invasor."
+    },
+    {
+      "question": "La comparación que hace el autor entre el General Anaya y Cuauhtémoc es porque ambos:",
+      "options": [
+        "Se rindieron sin luchar.",
+        "Ya no quisieron seguir resistiendo.",
+        "Muestran una actitud de patriotismo al lamentar su derrota.",
+        "No quisieron luchar más."
+      ],
+      "answer": 2,
+      "explanation": "Ambos muestran patriotismo al lamentar su derrota."
+    },
+    {
+      "question": "El significado dado a la palabra 'lego' en el pasaje, aparece en el inciso:",
+      "options": [
+        "Persona instruida en religión.",
+        "Persona poco instruida en ciencias físicas.",
+        "Persona muy instruida en ciencias físicas.",
+        "Persona no instruida en religión."
+      ],
+      "answer": 1,
+      "explanation": "Lego se refiere aquí a una persona poco instruida en ciencias físicas."
+    },
+    {
+      "question": "Según el autor, el principal receptor de esta obra debería ser:",
+      "options": [
+        "El hombre no especializado.",
+        "El científico.",
+        "El hombre de letras.",
+        "El hombre que se dedica a la enseñanza."
+      ],
+      "answer": 0,
+      "explanation": "El texto está dirigido al hombre no especializado en ciencia."
+    },
+    {
+      "question": "¿Cuál era la teoría sobre el universo que prevalecía en la ciencia hasta antes de la de Einstein?",
+      "options": [
+        "La de Copérnico.",
+        "La de Kepler.",
+        "La de Galileo.",
+        "La de Newton."
+      ],
+      "answer": 3,
+      "explanation": "La teoría de Newton prevalecía antes de la de Einstein."
+    },
+    {
+      "question": "De la lectura se infiere que:",
+      "options": [
+        "Los conceptos fueron nuevos, pero la teoría sobre el universo no cambió.",
+        "Newton y Einstein trabajaron juntos.",
+        "La teoría sobre el universo sufrió un cambio trascendental.",
+        "La teoría de Newton dejó de ser importante."
+      ],
+      "answer": 2,
+      "explanation": "La teoría del universo cambió significativamente con los aportes de Einstein."
+    },
+    {
+      "question": "De la lectura puede concluirse que:",
+      "options": [
+        "La teoría científica sobre el universo avanzó con los conceptos aportados por Einstein.",
+        "Para desarrollar sus teorías, Einstein tuvo que partir desde cero.",
+        "Los conceptos desarrollados antes de Einstein estaban equivocados.",
+        "Einstein fue el único científico que desarrolló conceptos correctos sobre el universo."
+      ],
+      "answer": 0,
+      "explanation": "Los conceptos de Einstein hicieron avanzar la teoría científica sobre el universo."
+    }
+  ]
+}

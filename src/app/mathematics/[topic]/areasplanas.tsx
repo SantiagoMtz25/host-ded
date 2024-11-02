@@ -63,22 +63,22 @@ const Probabilidad1Page: React.FC = () => {
       </p>
       <div className="grid grid-cols-2 gap-4 p-4 bg-gray-100 mt-4">
         {/* Row 1: Headers */}
-        <div className="bg-green-700 text-white font-bold p-2 text-center">
+        <div className="bg-[#afdceb] font-bold p-2 text-center">
           Figura
         </div>
-        <div className="bg-green-700 text-white font-bold p-2 text-center">
+        <div className="bg-[#afdceb] font-bold p-2 text-center">
           Fórmulas
         </div>
 
         {/* Row 2: Square */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>Cuadrado de lado L</p>
           <div className="w-16">{renderImage(imageURL[0])}</div>
           <p>
             <strong>Lado</strong> = L
           </p>
         </div>
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>
             <strong>Área</strong> = (L)(L) = L<sup>2</sup>
           </p>
@@ -88,11 +88,11 @@ const Probabilidad1Page: React.FC = () => {
         </div>
 
         {/* Row 3: Rectangle */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>Rectángulo</p>
           <div className="w-48">{renderImage(imageURL[1])}</div>
         </div>
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>
             <strong>Área</strong> = (b)(a) = ba
           </p>
@@ -102,7 +102,7 @@ const Probabilidad1Page: React.FC = () => {
         </div>
 
         {/* Row 4: Circle */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>Círculo</p>
           <div className="w-16">{renderImage(imageURL[2])}</div>
           <p>
@@ -112,7 +112,7 @@ const Probabilidad1Page: React.FC = () => {
             <strong>Diámetro</strong> = d
           </p>
         </div>
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>
             <strong>Área</strong> = πr<sup>2</sup>
           </p>

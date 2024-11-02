@@ -32,18 +32,18 @@ const NavCard: React.FC<NavCardProps> = ({
               : "bg-indigo_blue"
           }`}
         >
-          <p className="absolute bottom-6 left-7 text-white text-2xl">{num}</p>
+          <p className="absolute bottom-5 left-9 text-white text-2xl font-bold">{num}</p>
         </div>
         <div className="">
-          <div className="fill-violet-500 w-12">
+          <div className="h-[42px] fill-violet-500 w-12">
             <Image
               src={icon}
               alt={`${title} icon`}
-              width={48}
-              height={48}
+              width={42}
+              height={42}
             />
           </div>
-          <h1 className="font-bold text-xl pt-3">{title}</h1>
+          <h1 className="font-bold text-xl pt-3 mt-2">{title}</h1>
         </div>
         <p className="h-full text-base text-zinc-600 leading-6 flex flex-col justify-start">
           {description}

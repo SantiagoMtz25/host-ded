@@ -53,11 +53,11 @@ const EcuacionesLinealesPage: React.FC = () => {
       </p>
       <div className="grid grid-cols-2 gap-4 p-4 bg-gray-100 mt-4">
         {/* Row 1: Headers */}
-        <div className="bg-green-700 text-white font-bold p-2">Propiedad</div>
-        <div className="bg-green-700 text-white font-bold p-2">Ejemplo</div>
+        <div className="bg-[#afdceb] font-bold p-2">Propiedad</div>
+        <div className="bg-[#afdceb] font-bold p-2">Ejemplo</div>
 
         {/* Row 2: Addition/Subtraction Property */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           Si a ambos lados del igual se añade o se resta el mismo número, la
           ecuación no se altera.
         </div>
@@ -85,7 +85,7 @@ const EcuacionesLinealesPage: React.FC = () => {
         </div>
 
         {/* Row 3: Multiplication Property */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           Si a ambos lados se multiplican por la misma cantidad, la ecuación no
           se altera.
         </div>
@@ -112,7 +112,7 @@ const EcuacionesLinealesPage: React.FC = () => {
         </div>
 
         {/* Row 4: Commutative Property */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           Se puede intercambiar los lados de la igualdad, respetando los signos
           de cada término y la ecuación no se altera.
         </div>
@@ -124,7 +124,7 @@ const EcuacionesLinealesPage: React.FC = () => {
         </div>
 
         {/* Row 5: Multiplication Signs */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           Los signos en la multiplicación.
         </div>
         <div className="border p-4">
@@ -137,7 +137,7 @@ const EcuacionesLinealesPage: React.FC = () => {
         </div>
 
         {/* Row 6: Division Signs */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           Los signos en la división.
         </div>
         <div className="border p-4">
@@ -155,11 +155,11 @@ const EcuacionesLinealesPage: React.FC = () => {
       </p>
       <div className="grid grid-cols-2 gap-4 p-4 bg-gray-100 mt-4">
         {/* Row 1: Headers */}
-        <div className="bg-green-700 text-white font-bold p-2">Propiedad</div>
-        <div className="bg-green-700 text-white font-bold p-2">Ejemplo</div>
+        <div className="bg-[#afdceb] font-bold p-2">Propiedad</div>
+        <div className="bg-[#afdceb] font-bold p-2">Ejemplo</div>
 
         {/* Row 2: Additive Inverse Property */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>
             Todo número excepto el cero, tiene su{" "}
             <strong>inverso aditivo</strong>, también llamado{" "}
@@ -179,7 +179,7 @@ const EcuacionesLinealesPage: React.FC = () => {
         </div>
 
         {/* Row 3: Multiplicative Inverse Property */}
-        <div className="border p-4 bg-green-100">
+        <div className="border p-4 bg-[#cae9f5]">
           <p>
             Todo número, excepto el cero, tiene su{" "}
             <strong>inverso multiplicativo</strong>, también llamado{" "}

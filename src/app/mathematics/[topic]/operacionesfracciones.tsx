@@ -59,43 +59,43 @@ const OperacionesFraccionesPage: React.FC = () => {
       </p>
       <div className="grid grid-cols-2 gap-4 p-4 bg-gray-100 mt-4">
         {/* Row 1: Headers */}
-        <div className="bg-green-700 text-white font-bold p-2 text-center">
+        <div className="bg-[#afdceb] font-bold p-2 text-center">
           Conceptos
         </div>
-        <div className="bg-green-700 text-white font-bold p-2 text-center">
+        <div className="bg-[#afdceb] font-bold p-2 text-center">
           Operaciones fundamentales
         </div>
 
         {/* Row 2: Concepts List */}
-        <div className="border p-4 bg-green-100">
-          <ul className="list-disc list-inside text-green-800">
+        <div className="border p-4 bg-[#cae9f5]">
+          <ul className="list-disc list-inside ">
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 Algoritmo
               </a>
             </li>
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 Fracción
               </a>
             </li>
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 Fracción propia
               </a>
             </li>
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 Fracción impropia
               </a>
             </li>
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 Fracción mixta
               </a>
             </li>
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 Mínimo común denominador de varios denominadores
               </a>
             </li>
@@ -103,30 +103,30 @@ const OperacionesFraccionesPage: React.FC = () => {
         </div>
 
         {/* Row 3: Fundamental Operations List */}
-        <div className="border p-4 bg-green-100">
-          <ul className="list-disc list-inside text-green-800">
+        <div className="border p-4 bg-[#cae9f5]">
+          <ul className="list-disc list-inside ">
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 Multiplicación
               </a>
             </li>
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 División
               </a>
             </li>
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 Suma y/o resta
               </a>
             </li>
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 MCD
               </a>
             </li>
             <li>
-              <a href="#" className="text-green-800 underline">
+              <a href="#" className=" underline">
                 Multiplicación y potenciación
               </a>
             </li>
