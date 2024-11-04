@@ -35,12 +35,16 @@ const SideBar: React.FC<SideBarProps> = ({ elements, onSelect }) => {
     setIsSidebarVisible(!isSidebarVisible);
   };
 
+  const closeSidebar = () => {
+    setIsSidebarVisible(false);
+  }
+
   return (
     <>
       {/* Toggle Button */}
       <button
         onClick={toggleSidebar}
-        className="fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-2xl md:hidden"
+        className="w-28 sm:w-auto fixed top-4 left-4 z-50 p-2 bg-gray-800 text-white rounded-2xl md:hidden"
       >
         {isSidebarVisible ? "Cerrar navegación" : "Abrir navegación"}
       </button>
@@ -51,7 +55,7 @@ const SideBar: React.FC<SideBarProps> = ({ elements, onSelect }) => {
           isSidebarVisible ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 md:block layout-content-container flex flex-col min-w-80`}
       >
-        <div className="mt-10 md:mt-0 flex h-full flex-col justify-between p-2">
+        <div className="mt-20 md:mt-0 flex h-full flex-col justify-between p-2">
           <div className="flex flex-col gap-4">
             <GoBackBtn />
             <div className="flex flex-col gap-2">
@@ -87,6 +91,7 @@ const SideBar: React.FC<SideBarProps> = ({ elements, onSelect }) => {
                         : `/${pathToNavigate}/`
                     }${normalizeTitle(element)}`}
                     className="w-full"
+                    onClick={closeSidebar}
                   >
                     <p className="w-full text-[#0d151c] text-base font-medium leading-normal">
                       {element}

@@ -37,12 +37,14 @@ const NavBar: React.FC<NavBarProps> = ({ }) => {
           alt={"Centro Virtual de Aprendizaje"}
           width={250}
           height={50}
+          className="w-40 sm:w-60"
         />
         <Image
           src="/images/Tec.png"
           alt={"Tecnológico de Monterrey"}
           width={250}
           height={50}
+          className="w-40 sm:w-60"
         />
         {/* <button
             className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#2094f3] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]"
