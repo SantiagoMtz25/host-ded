@@ -3,6 +3,7 @@ import NavCard from "./components/NavCard";
 import homedata from "../../public/homedata.json";
 import FooterComponent from "./components/Footer";
 import NavBar from "./components/NavBar";
+import Carousel from "./components/Carousel";
 
 interface Course {
   title: string;
@@ -17,13 +18,21 @@ const iconMap: { [key: string]: string } = {
   "fa-solid fa-calculator": "/icons/faCalculator.svg",
 };
 
+const imageUrls: string[] = [
+  "/images/shutterstock_2404300609.jpg",
+  "/images/shutterstock_2480344323.jpg",
+  "/images/shutterstock_2489482857.jpg",
+  "/images/shutterstock_2491645949.jpg",
+  "/images/shutterstock_2499137801.jpg"
+];
+
 export default function Home() {
   const courses: Course[] = homedata.courses.flatMap((course) =>
     Object.values(course)
   );
 
-  const title: string[] = homedata.title;
-  const description: string[] = homedata.description;
+  const title: string = homedata.title;
+  const description: string = homedata.description;
 
   return (
     <div className="flex flex-col justify-center">
@@ -39,9 +48,10 @@ export default function Home() {
             description={description}
             imageURL={imageUrls}
           /> */}
+          
           <div className="@container">
             <div className="@[480px]:p-4">
-              <div
+              {/* <div
                 className="flex min-h-[70vh] md:min-h-[60vh] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-start justify-end px-4 pb-10 @[480px]:px-10 rounded-2xl"
                 style={{
                   backgroundImage: `linear-gradient(90deg, rgba(0,0,0,1) 1%, rgba(145,145,145,0.5019257703081232) 98%, rgba(255,255,255,0) 100%), url(/images/shutterstock_2404300609.jpg)`,
@@ -58,7 +68,9 @@ export default function Home() {
                     {description}
                   </h2>
                 </div>
-              </div>
+              </div> */}
+
+              <Carousel title={title} description={description} images={imageUrls} />
             </div>
           </div>
 
@@ -76,7 +88,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+          
       <FooterComponent />
     </div>
   );

@@ -10,7 +10,7 @@ interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({ }) => {
   const pathname = usePathname();
-  const imageAlign = pathname === "/" ? "items-center" : "items-end";
+  const imageAlign = pathname === "/" || pathname === "/credits" ? "items-center" : "items-end";
 
   return (
     <>
