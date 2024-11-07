@@ -14,7 +14,7 @@ const page = () => {
         <div className="layout-content-container lg:w-[90%] max-w-[1120px] flex flex-row flex-1">
           <div className="w-1/2 h-full hidden md:block">
             <Image
-              src="/images/shutterstock_1095997055.jpg"
+              src="/images/shutterstock_1520767361.jpg"
               alt="credits-banner"
               width={1120}
               height={2000}

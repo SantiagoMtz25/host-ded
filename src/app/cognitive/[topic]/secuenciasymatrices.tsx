@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { usePathname } from "next/navigation";
 import secuenciasymatrices from "./secuenciasymatrices.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupSecuenciasMatrices from "./CognitivePopup/SecuenciasMatricesPopup"
 import Link from "next/link";
 
 const SecYMatricesPage: React.FC = () => {
@@ -17,7 +17,6 @@ const SecYMatricesPage: React.FC = () => {
     exampleQuestion2,
     exampleQuestion,
     exampleOptions,
-    answer,
   } = secuenciasymatrices;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -101,9 +100,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      /> */}
+      <InfoPopupSecuenciasMatrices
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

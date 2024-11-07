@@ -3,6 +3,8 @@
 import { usePathname } from "next/navigation";
 import semejanzaCongruencia from "./semejanzacongruencia.json";
 import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupCongruenciaTriangulos from "./MathPopup/CongruenciaTriangulos";
+import InfoPopupSemejanzaTriangulos from "./MathPopup/SemejanzaTriangulos";
 import { useState } from "react";
 
 const SemejanzaCongruenciaPage: React.FC = () => {
@@ -54,6 +56,9 @@ const SemejanzaCongruenciaPage: React.FC = () => {
     setPopupOpen(false);
   };
 
+  const [isPopupCongruenciaOpen, setPopupCongruenciaOpen] = useState(false);
+  const [isPopupSemejanzaOpen, setPopupSemejanzaOpen] = useState(false);
+
   return (
     <>
       <h1 className="text-xl font-bold">{topic}</h1>
@@ -68,11 +73,9 @@ const SemejanzaCongruenciaPage: React.FC = () => {
         </p>
         <div className="w-6 h-6 ml-2">{renderImage(imageURL[1])}</div>
       </div>
-      <ul className="list-disc mt-4 ml-8">
-        <li className="underline">
-          Teoremas sobre congruencia de dos triángulos
-        </li>
-      </ul>
+      <button className="underline mt-4 ml-6" onClick={() => setPopupCongruenciaOpen(true)}>
+        Teoremas sobre congruencia de dos triángulos
+      </button>
       <p className="mt-4">
         Las <span className="font-bold">figuras semejantes</span> tienen la
         misma forma pero diferente tamaño.
@@ -83,11 +86,9 @@ const SemejanzaCongruenciaPage: React.FC = () => {
         </p>
         <div className="w-12 h-8 ml-2">{renderImage(imageURL[2])}</div>
       </div>
-      <ul className="list-disc mt-4 ml-8">
-        <li className="underline">
-          Teoremas sobre congruencia de dos triángulos
-        </li>
-      </ul>
+      <button className="underline mt-4 ml-6" onClick={() => setPopupSemejanzaOpen(true)}>
+        Teorema sobre semejanza de triángulos
+      </button>
 
       <p className="mt-4 font-bold text-green-500">Ejemplo</p>
       <p className="mt-4">
@@ -137,6 +138,16 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
+      />
+
+      {/* Info Popup */}
+      <InfoPopupCongruenciaTriangulos
+        isOpen={isPopupCongruenciaOpen}
+        onClose={() => setPopupCongruenciaOpen(false)}
+      />
+      <InfoPopupSemejanzaTriangulos
+        isOpen={isPopupSemejanzaOpen}
+        onClose={() => setPopupSemejanzaOpen(false)}
       />
     </>
   );

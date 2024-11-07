@@ -10,7 +10,7 @@ const AnalogiaPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
 
-  const { topic, exampleQuestion, exampleOptions, answer } = analogia;
+  const { topic, exampleQuestion, exampleOptions, answer, description } = analogia;
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -65,7 +65,7 @@ const AnalogiaPage: React.FC = () => {
         ejemplo se presenta una relación entre los términos{" "}
         <span className="font-bold">Gato</span> y{" "}
         <span className="font-bold">felino</span>. Después se presenta un
-        término que se encuentra subrayado. Selecciona la opción que se
+        término que se encuentra <span className="underline">subrayado</span>. Selecciona la opción que se
         relaciona con el término subrayado de la misma forma en que se
         relacionan los dos primeros términos.
       </p>
@@ -111,6 +111,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        description={description}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

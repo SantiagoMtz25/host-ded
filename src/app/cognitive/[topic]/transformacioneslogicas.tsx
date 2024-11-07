@@ -1,8 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import CustomPopUp from "../../components/CustomPopUp";
 import transformacioneslogicas from "./transformacioneslogicas.json";
+import InfoPopupTransformacionesLogicas from "./CognitivePopup/TransformacionesLogicasPopup";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -17,7 +17,6 @@ const TransformacionesLogicasPage: React.FC = () => {
     exampleQuestion2,
     exampleQuestion,
     exampleOptions,
-    answer
   } = transformacioneslogicas;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -103,9 +102,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      /> */}
+      <InfoPopupTransformacionesLogicas
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

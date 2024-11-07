@@ -18,14 +18,6 @@ const iconMap: { [key: string]: string } = {
   "fa-solid fa-calculator": "/icons/faCalculator.svg",
 };
 
-const imageUrls: string[] = [
-  "/images/shutterstock_2404300609.jpg",
-  "/images/shutterstock_2480344323.jpg",
-  "/images/shutterstock_2489482857.jpg",
-  "/images/shutterstock_2491645949.jpg",
-  "/images/shutterstock_2499137801.jpg"
-];
-
 export default function Home() {
   const courses: Course[] = homedata.courses.flatMap((course) =>
     Object.values(course)
@@ -70,7 +62,7 @@ export default function Home() {
                 </div>
               </div> */}
 
-              <Carousel title={title} description={description} images={imageUrls} />
+              <Carousel title={title} description={description} />
             </div>
           </div>
 

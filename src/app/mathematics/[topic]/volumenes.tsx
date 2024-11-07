@@ -3,6 +3,11 @@
 import { usePathname } from "next/navigation";
 import volumenes from "./volumenes.json";
 import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupPrisma from "./MathPopup/PrismaRectangularPopup";
+import InfoPopupCubo from "./MathPopup/CuboPopup";
+import InfoPopupCilindro from "./MathPopup/CilindroPopup";
+import InfoPopupCono from "./MathPopup/ConoPopup";
+import InfoPopupEsfera from "./MathPopup/EsferaPopup";
 import { useState } from "react";
 
 const VolumenesPage: React.FC = () => {
@@ -54,6 +59,13 @@ const VolumenesPage: React.FC = () => {
     setPopupOpen(false);
   };
 
+  // States for each popup visibility
+  const [isPopupPrismaOpen, setPopupPrismaOpen] = useState(false);
+  const [isPopupCuboOpen, setPopupCuboOpen] = useState(false);
+  const [isPopupCilindroOpen, setPopupCilindroOpen] = useState(false);
+  const [isPopupConoOpen, setPopupConoOpen] = useState(false);
+  const [isPopupEsferaOpen, setPopupEsferaOpen] = useState(false);
+
   return (
     <>
       <h1 className="text-xl font-bold">{topic}</h1>
@@ -61,13 +73,38 @@ const VolumenesPage: React.FC = () => {
         En este tema revisaremos como se calcula los volúmenes de las siguientes
         figuras:
       </p>
-      <ul className="underline list-disc mt-2 pl-8">
-        <li>Prisma rectangular</li>
-        <li>Cubo</li>
-        <li>Cilindro</li>
-        <li>Cono</li>
-        <li>Esfera</li>
-      </ul>
+      <div className="p-4 flex flex-col items-start">
+        <button
+          className="underline mb-2"
+          onClick={() => setPopupPrismaOpen(true)}
+        >
+          Prisma Rectangular
+        </button>
+        <button
+          className="underline mb-2"
+          onClick={() => setPopupCuboOpen(true)}
+        >
+          Cubo
+        </button>
+        <button
+          className="underline mb-2"
+          onClick={() => setPopupCilindroOpen(true)}
+        >
+          Cilindro
+        </button>
+        <button
+          className="underline mb-2"
+          onClick={() => setPopupConoOpen(true)}
+        >
+          Cono
+        </button>
+        <button
+          className="underline mb-2"
+          onClick={() => setPopupEsferaOpen(true)}
+        >
+          Esfera
+        </button>
+      </div>
 
       <p className="mt-4 font-bold text-green-500">Ejemplo</p>
       <p className="mt-4">
@@ -92,9 +129,7 @@ const VolumenesPage: React.FC = () => {
 ${backgroundColor2}
 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
 active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
-          onClick={
-            handleSeeAnswer
-          }
+          onClick={handleSeeAnswer}
         >
           Ver Respuesta
         </button>
@@ -117,6 +152,28 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
+      />
+
+      {/* Info Popup */}
+      <InfoPopupPrisma
+        isOpen={isPopupPrismaOpen}
+        onClose={() => setPopupPrismaOpen(false)}
+      />
+      <InfoPopupCubo
+        isOpen={isPopupCuboOpen}
+        onClose={() => setPopupCuboOpen(false)}
+      />
+      <InfoPopupCilindro
+        isOpen={isPopupCilindroOpen}
+        onClose={() => setPopupCilindroOpen(false)}
+      />
+      <InfoPopupCono
+        isOpen={isPopupConoOpen}
+        onClose={() => setPopupConoOpen(false)}
+      />
+      <InfoPopupEsfera
+        isOpen={isPopupEsferaOpen}
+        onClose={() => setPopupEsferaOpen(false)}
       />
     </>
   );

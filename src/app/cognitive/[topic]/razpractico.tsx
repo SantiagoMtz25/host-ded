@@ -14,7 +14,8 @@ const RazonamientoPracticoPage: React.FC = () => {
     topic,
     exampleQuestion,
     exampleOptions,
-    answer
+    answer,
+    description
   } = razonamientopractico;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -112,6 +113,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        description={description}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

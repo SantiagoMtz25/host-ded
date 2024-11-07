@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 type QuestionProps = {
   question: string;
   options: string[];
-  answer: number; //index of the correct answer
+  answer: number;
   explanation?: string;
 };
 

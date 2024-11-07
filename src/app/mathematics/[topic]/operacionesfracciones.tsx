@@ -3,6 +3,17 @@
 import { usePathname } from "next/navigation";
 import operacionesFracciones from "./operacionesfracciones.json";
 import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupAlgoritmo from "./MathPopup/Algoritmo"; 
+import InfoPopupFraccion from "./MathPopup/FraccionPopup";
+import InfoPopupFraccionPropia from "./MathPopup/FraccionPropiaPopup";
+import InfoPopupFraccionImpropia from "./MathPopup/FraccionImpropiaPopup";
+import InfoPopupFraccionMixta from "./MathPopup/FraccionMixtaPopup";
+import InfoPopupMinimoComunDenominador from "./MathPopup/MinimoComunPopup";
+import InfoPopupMultiplicacion from "./MathPopup/MultiplicacionPopup";
+import InfoPopupDivision from "./MathPopup/DivisionPopup";
+import InfoPopupSumaResta from "./MathPopup/SumaRestaPopup";
+import InfoPopupMCD from "./MathPopup/MCDPopup";
+import InfoPotenciacion from "./MathPopup/PotenciacionPopup";
 import { useState } from "react";
 
 const OperacionesFraccionesPage: React.FC = () => {
@@ -40,6 +51,19 @@ const OperacionesFraccionesPage: React.FC = () => {
     setPopupOpen(false);
   };
 
+  // States for each popup visibility
+  const [isPopupAlgoritmoOpen, setPopupAlgoritmoOpen] = useState(false);
+  const [isPopupFraccionOpen, setPopupFraccionOpen] = useState(false);
+  const [isPopupFraccionPropiaOpen, setPopupFraccionPropiaOpen] = useState(false);
+  const [isPopupFraccionImpropiaOpen, setPopupFraccionImpropiaOpen] = useState(false);
+  const [isPopupFraccionMixtaOpen, setPopupFraccionMixtaOpen] = useState(false);
+  const [isPopupMinimoComunDenominadorOpen, setPopupMinimoComunDenominadorOpen] = useState(false);
+  const [isPopupMultiplicacionOpen, setPopupMultiplicacionOpen] = useState(false);
+  const [isPopupDivisionOpen, setPopupDivisionOpen] = useState(false);
+  const [isPopupSumaRestaOpen, setPopupSumaRestaOpen] = useState(false);
+  const [isPopupMCDOpen, setPopupMCDOpen] = useState(false);
+  const [isPopupPotenciacionOpen, setPopupPotenciacionOpen] = useState(false);
+
   return (
     <>
       <h1 className="text-xl font-bold">{topic}</h1>
@@ -66,71 +90,45 @@ const OperacionesFraccionesPage: React.FC = () => {
           Operaciones fundamentales
         </div>
 
-        {/* Row 2: Concepts List */}
-        <div className="border p-4 bg-[#cae9f5]">
-          <ul className="list-disc list-inside ">
-            <li>
-              <a href="#" className=" underline">
-                Algoritmo
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" underline">
-                Fracción
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" underline">
-                Fracción propia
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" underline">
-                Fracción impropia
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" underline">
-                Fracción mixta
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" underline">
-                Mínimo común denominador de varios denominadores
-              </a>
-            </li>
-          </ul>
+        {/* Concepts List as Buttons */}
+        <div className="p-4 flex flex-col items-start">
+          <button className="underline mb-2" onClick={() => setPopupAlgoritmoOpen(true)}>
+            Algoritmo
+          </button>
+          <button className="underline mb-2" onClick={() => setPopupFraccionOpen(true)}>
+            Fracción
+          </button>
+          <button className="underline mb-2" onClick={() => setPopupFraccionPropiaOpen(true)}>
+            Fracción propia
+          </button>
+          <button className="underline mb-2" onClick={() => setPopupFraccionImpropiaOpen(true)}>
+            Fracción impropia
+          </button>
+          <button className="underline mb-2" onClick={() => setPopupFraccionMixtaOpen(true)}>
+            Fracción mixta
+          </button>
+          <button className="underline mb-2" onClick={() => setPopupMinimoComunDenominadorOpen(true)}>
+            Mínimo común denominador de varios denominadores
+          </button>
         </div>
 
-        {/* Row 3: Fundamental Operations List */}
-        <div className="border p-4 bg-[#cae9f5]">
-          <ul className="list-disc list-inside ">
-            <li>
-              <a href="#" className=" underline">
-                Multiplicación
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" underline">
-                División
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" underline">
-                Suma y/o resta
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" underline">
-                MCD
-              </a>
-            </li>
-            <li>
-              <a href="#" className=" underline">
-                Multiplicación y potenciación
-              </a>
-            </li>
-          </ul>
+        {/* Fundamental Operations List */}
+        <div className="p-4 flex flex-col items-start">
+          <button className="underline mb-2" onClick={() => setPopupMultiplicacionOpen(true)}>
+            Multiplicación
+          </button>
+          <button className="underline mb-2" onClick={() => setPopupDivisionOpen(true)}>
+            División
+          </button>
+          <button className="underline mb-2" onClick={() => setPopupSumaRestaOpen(true)}>
+            Suma y/o resta
+          </button>
+          <button className="underline mb-2" onClick={() => setPopupMCDOpen(true)}>
+            MCD
+          </button>
+          <button className="underline mb-2" onClick={() => setPopupPotenciacionOpen(true)}>
+            Multiplicación y potenciación
+          </button>
         </div>
       </div>
 
@@ -182,6 +180,19 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />
+
+      {/* Info Popup */}
+      <InfoPopupAlgoritmo isOpen={isPopupAlgoritmoOpen} onClose={() => setPopupAlgoritmoOpen(false)} />
+      <InfoPopupFraccion isOpen={isPopupFraccionOpen} onClose={() => setPopupFraccionOpen(false)} />
+      <InfoPopupFraccionPropia isOpen={isPopupFraccionPropiaOpen} onClose={() => setPopupFraccionPropiaOpen(false)} />
+      <InfoPopupFraccionImpropia isOpen={isPopupFraccionImpropiaOpen} onClose={() => setPopupFraccionImpropiaOpen(false)} />
+      <InfoPopupFraccionMixta isOpen={isPopupFraccionMixtaOpen} onClose={() => setPopupFraccionMixtaOpen(false)} />
+      <InfoPopupMinimoComunDenominador isOpen={isPopupMinimoComunDenominadorOpen} onClose={() => setPopupMinimoComunDenominadorOpen(false)} />
+      <InfoPopupMultiplicacion isOpen={isPopupMultiplicacionOpen} onClose={() => setPopupMultiplicacionOpen(false)} />
+      <InfoPopupDivision isOpen={isPopupDivisionOpen} onClose={() => setPopupDivisionOpen(false)} />
+      <InfoPopupSumaResta isOpen={isPopupSumaRestaOpen} onClose={() => setPopupSumaRestaOpen(false)} />
+      <InfoPopupMCD isOpen={isPopupMCDOpen} onClose={() => setPopupMCDOpen(false)} />
+      <InfoPotenciacion isOpen={isPopupPotenciacionOpen} onClose={() => setPopupPotenciacionOpen(false)} />
     </>
   );
 };

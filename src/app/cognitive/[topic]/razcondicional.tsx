@@ -1,8 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import CustomPopUp from "../../components/CustomPopUp";
 import razonamientocondicional from './razonamientocondicional.json';
+import InfoPopupRazCondicional from './CognitivePopup/RazCondicionalPopup';
 import { useState } from "react";
 import Link from "next/link";
 
@@ -12,9 +12,7 @@ const RazonamientoCondicionalPage: React.FC = () => {
 
   const {
     topic,
-    exampleQuestion,
     exampleOptions,
-    answer
   } = razonamientocondicional;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -56,7 +54,7 @@ const RazonamientoCondicionalPage: React.FC = () => {
       <p className="mt-4">
         <span className="font-bold">Instrucciones:</span> en estos ejercicios se proporcionan una o más premisas (afirmaciones sustentadas empíricamente) que conducen a una conclusión. Debes seleccionar la opción que representa la conclusión del ejemplo:
       </p>
-      <p className="text-base mt-4">
+      <p className="text-base mt-4 ml-6">
         1. El inciso que tiene la conclusión de las siguientes premisas es:
         <br />Todos los niños inventan juegos.
         <br />Todos los que inventan juegos son creativos.
@@ -100,9 +98,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      /> */}
+      <InfoPopupRazCondicional
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

@@ -33,15 +33,15 @@ const NavBar: React.FC<NavBarProps> = ({ }) => {
           </h2>
         </div> */}
         <Image
-          src="/images/Recurso 3cva 3.png"
-          alt={"Centro Virtual de Aprendizaje"}
+          src="/images/Tec.png"
+          alt={"Tecnológico de Monterrey"}
           width={250}
           height={50}
           className="w-40 sm:w-60"
         />
         <Image
-          src="/images/Tec.png"
-          alt={"Tecnológico de Monterrey"}
+          src="/images/Recurso 3cva 3.png"
+          alt={"Centro Virtual de Aprendizaje"}
           width={250}
           height={50}
           className="w-40 sm:w-60"

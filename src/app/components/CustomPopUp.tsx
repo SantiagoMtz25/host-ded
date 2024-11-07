@@ -22,7 +22,7 @@ const Popup: React.FC<PopupProps> = ({ title, answer, description, images, isOpe
         </button>
         <h2 className="mt-9 text-xl font-bold mb-4">{title}</h2>
         <p className="mb-4">{answer}</p>
-        {description && <p className="text-gray-600 mb-4">{description}</p>}
+        {description && <p className="text-gray-600 mb-4 preserve-whitespace" style={{ whiteSpace: 'pre-wrap' }}>{description}</p>}
         {images && images.length > 0 && (
           <div className="flex gap-2 overflow-auto">
             {images.map((src, index) => (
