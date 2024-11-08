@@ -8,7 +8,7 @@ import CustomPopUp from "../../components/CustomPopUp";
 const CuadradoFraccionPage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer } = cuadradoFraccion;
+  const { topic, exampleQuestion, exampleOptions, answer, description } = cuadradoFraccion;
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -91,6 +91,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        description={description}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

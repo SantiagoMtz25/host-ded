@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import triangulos from "./triangulos.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupTriangulo from './InfoMathPopup/TrianguloPopup';
 import { useState } from "react";
 
 const TriangulosPage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer, imageURL } =
+  const { topic, exampleQuestion, exampleOptions, imageURL } =
     triangulos;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -109,9 +109,14 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      /> */}
+
+      <InfoPopupTriangulo
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

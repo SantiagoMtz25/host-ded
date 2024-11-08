@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import palabrasEnlazantes from "./palabrasenlazantes.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupPalabrasEnlazantes from "./VerbalPopups/PalabrasEnlazantesPopup";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ const PalabrasEnlazantesPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
 
-  const { topic, exampleQuestion, exampleOptions, answer, imageURL } = palabrasEnlazantes;
+  const { topic, exampleQuestion, exampleOptions, imageURL } = palabrasEnlazantes;
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -112,9 +112,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      /> */}
+      <InfoPopupPalabrasEnlazantes
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

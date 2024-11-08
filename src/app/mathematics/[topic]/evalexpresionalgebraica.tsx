@@ -1,14 +1,14 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import expresionAlgebraica from "./expresionalgebraica.json";
+import expresionAlgebraica from "./evalexpresionalgebraica.json";
 import CustomPopUp from "../../components/CustomPopUp";
 import { useState } from "react";
 
 const ExpresionAlgebraicaPage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer } =
+  const { topic, exampleQuestion, exampleOptions, answer, imageURL, description } =
     expresionAlgebraica;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -166,6 +166,9 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        description={description}
+        images={imageURL}
+        width={250}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

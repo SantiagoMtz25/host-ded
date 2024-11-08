@@ -3,14 +3,14 @@
 import { usePathname } from "next/navigation";
 import significadoOracion from "./significadooracion.json";
 import { useState } from "react";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupSignificadoOracion from "./VerbalPopups/SignificadoOracionPopup";
 import Link from "next/link";
 
 const SignificadoOracionPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
 
-  const { topic, exampleQuestion, exampleOptions, answer } = significadoOracion;
+  const { topic, exampleQuestion, exampleOptions } = significadoOracion;
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -106,9 +106,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      /> */}
+      <InfoPopupSignificadoOracion
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import sistemasEcuaciones from "./sistemasecuaciones.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupSistemasEcuaciones from './InfoMathPopup/SistemasEcuacionesPopup';
 import { useState } from "react";
 
 const SistemasEcuacionesPage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer } = sistemasEcuaciones;
+  const { topic, exampleQuestion, exampleOptions } = sistemasEcuaciones;
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -158,12 +158,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
-      />
+      /> */}
+      <InfoPopupSistemasEcuaciones isOpen={isPopupOpen} onClose={handleClosePopup} />
     </>
   );
 };

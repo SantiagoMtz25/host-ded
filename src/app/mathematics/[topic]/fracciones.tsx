@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import fracciones from "./fracciones.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupFraccionExample from './InfoMathPopup/FraccionPopup';
 import InfoPopupAlgoritmo from "./MathPopup/Algoritmo"; 
 import InfoPopupFraccion from "./MathPopup/FraccionPopup";
 import InfoPopupFraccionPropia from "./MathPopup/FraccionPropiaPopup";
@@ -18,7 +18,7 @@ import { useState } from "react";
 const FraccionesPage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer } = fracciones;
+  const { topic, exampleQuestion } = fracciones;
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -153,12 +153,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Answer Popup */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
-      />
+      /> */}
+      <InfoPopupFraccionExample isOpen={isPopupOpen} onClose={handleClosePopup} />
 
       {/* Info Popup */}
       <InfoPopupAlgoritmo isOpen={isPopupAlgoritmoOpen} onClose={() => setPopupAlgoritmoOpen(false)} />

@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import ecuacionesLineales from "./ecuacioneslineales.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupEcuacionesLineales from './InfoMathPopup/EcuacionesLinealesPopup'
 import { useState } from "react";
 
 const EcuacionesLinealesPage: React.FC = () => {
@@ -243,12 +243,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
-      />
+      /> */}
+      <InfoPopupEcuacionesLineales isOpen={isPopupOpen} onClose={handleClosePopup} />
     </>
   );
 };

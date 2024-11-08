@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import funcionDosVariables from "./funcdosvariables.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopup from './InfoMathPopup/FuncDosVariablesPopup';
 import { useState } from "react";
 
 const FuncionDosVariablePage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer } =
+  const { topic, exampleQuestion, exampleOptions } =
     funcionDosVariables;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -193,12 +193,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
-      />
+      /> */}
+      <InfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
     </>
   );
 };

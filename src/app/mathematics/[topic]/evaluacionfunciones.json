@@ -8,5 +8,6 @@
     "d) -4"
   ],
   "answer": 3,
-  "imageURL": "/images/evafunc2.png"
+  "imageURL": "/images/evafunc2.png",
+  "description": "La solución de este problema se realiza sustituyendo el valor de f(-3) en la ecuación f (x) = 3x + 5 de la siguiente manera:\n\nf (-3) = 3 (-3) + 5\nf (-3) = - 9 + 5\nf (-3) = - 4"
 }

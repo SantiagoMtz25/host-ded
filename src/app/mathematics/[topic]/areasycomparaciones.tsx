@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import areasYComparaciones from "./areasycomparaciones.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupAreasComparaciones from './InfoMathPopup/AreasComparacionesPopup';
 import { useState } from "react";
 
 const AreasYComparacionesPage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer, imageURL } =
+  const { topic, exampleQuestion, exampleOptions, imageURL } =
     areasYComparaciones;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -107,11 +107,16 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
+      /> */}
+
+      <InfoPopupAreasComparaciones
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}  
       />
     </>
   );

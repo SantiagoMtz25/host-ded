@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import areasPlanas from "./areasplanas.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupAreasPlanas from './InfoMathPopup/AreasPlanasPopup';
 import { useState } from "react";
 
 const Probabilidad1Page: React.FC = () => {
@@ -167,9 +167,14 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      /> */}
+
+      <InfoPopupAreasPlanas
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

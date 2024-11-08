@@ -8,7 +8,7 @@ import { useState } from "react";
 const EvaluacionFuncionesPage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer, imageURL } =
+  const { topic, exampleQuestion, exampleOptions, answer, imageURL, description } =
     evaluacionFunciones;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -144,6 +144,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        description={description}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

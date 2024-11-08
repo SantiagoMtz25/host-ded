@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import maximoComunDivisor from "./maximocomundivisor.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupMaxComunDiv from './InfoMathPopup/MaxComunDivPopup';
 import { useState } from "react";
 
 const MaximoComunDivisorPage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer, imageURL } = maximoComunDivisor;
+  const { topic, exampleQuestion, exampleOptions, imageURL } = maximoComunDivisor;
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -136,12 +136,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
-      />
+      /> */}
+      <InfoPopupMaxComunDiv isOpen={isPopupOpen} onClose={handleClosePopup} />
     </>
   );
 };

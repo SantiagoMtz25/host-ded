@@ -7,7 +7,7 @@ import ExpresionesAlgebraicasComponent from "./expresionesalgebraicas";
 import EcuacionesLinealesComponent from "./ecuacioneslineales";
 import EvaluacionFuncionesComponent from "./evaluacionfunciones";
 import FuncDosVariablesComponent from "./funcdosvariables";
-import ExpresionAlgebraicaComponent from "./expresionalgebraica";
+import ExpresionAlgebraicaComponent from "./evalexpresionalgebraica";
 import SistemasEcuacionesComponent from "./sistemasecuaciones";
 import CuadradoFraccionComponent from "./cuadradofraccion";
 import FraccionesComponent from "./fracciones";

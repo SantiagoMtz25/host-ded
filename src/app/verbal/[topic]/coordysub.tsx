@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import coordYSubordinantes from "./coordinantesosubordinantes.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupCoordSub from "./VerbalPopups/CoordSubPopup";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ const CoordYSub: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
 
-  const { topic, exampleQuestion, exampleOptions, answer } =
+  const { topic, exampleOptions } =
     coordYSubordinantes;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -199,9 +199,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      /> */}
+      <InfoPopupCoordSub
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

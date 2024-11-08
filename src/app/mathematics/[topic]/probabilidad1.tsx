@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import probabilidad1 from "./probabilidad1.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupProbabilidad1 from './InfoMathPopup/Probabilidad1Popup';
 import { useState } from "react";
 
 const Probabilidad1Page: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer } = probabilidad1;
+  const { topic, exampleQuestion, exampleOptions } = probabilidad1;
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -119,12 +119,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
-      />
+      /> */}
+      <InfoPopupProbabilidad1 isOpen={isPopupOpen} onClose={handleClosePopup} />
     </>
   );
 };

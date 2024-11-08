@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import expresionesAlgebraicas from "./expresionesalgebraicas.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupExpresionAlgebraica from './InfoMathPopup/ExpresionAlgebraicaPopup';
 import { useState } from "react";
 
 const ExpresionesAlgebraicasPage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer } =
+  const { topic, exampleQuestion, exampleOptions } =
     expresionesAlgebraicas;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -93,9 +93,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      /> */}
+      <InfoPopupExpresionAlgebraica
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

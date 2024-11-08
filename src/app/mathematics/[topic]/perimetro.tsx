@@ -2,13 +2,13 @@
 
 import { usePathname } from "next/navigation";
 import perimetro from "./perimetro.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupPreimetro from './InfoMathPopup/PerimetroPopup';
 import { useState } from "react";
 
 const PerimetroPage: React.FC = () => {
   const pathname = usePathname();
 
-  const { topic, exampleQuestion, exampleOptions, answer, imageURL } =
+  const { topic, exampleQuestion, exampleOptions, imageURL } =
     perimetro;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -104,12 +104,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
-      />
+      /> */}
+      <InfoPopupPreimetro isOpen={isPopupOpen} onClose={handleClosePopup} />
     </>
   );
 };

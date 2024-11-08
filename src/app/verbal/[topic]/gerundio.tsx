@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import gerundio from "./usogerundio.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopupUsoGerundio from "./VerbalPopups/UsoGerundioPopup";
 import { useState } from "react";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ const GerundioPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
 
-  const { topic, exampleQuestion, exampleOptions, answer } = gerundio;
+  const { topic, exampleOptions } = gerundio;
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -140,9 +140,13 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
+      {/* <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isOpen={isPopupOpen}
+        onClose={handleClosePopup}
+      /> */}
+      <InfoPopupUsoGerundio
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

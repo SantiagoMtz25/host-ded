@@ -7,11 +7,12 @@ type PopupProps = {
   answer: string;
   description?: string;
   images?: string[];
+  width?: number;
   isOpen: boolean;
   onClose: () => void;
 };
 
-const Popup: React.FC<PopupProps> = ({ title, answer, description, images, isOpen, onClose }) => {
+const Popup: React.FC<PopupProps> = ({ title, answer, description, images, width, isOpen, onClose }) => {
   if (!isOpen) return null;
 
   return (
@@ -24,9 +25,9 @@ const Popup: React.FC<PopupProps> = ({ title, answer, description, images, isOpe
         <p className="mb-4">{answer}</p>
         {description && <p className="text-gray-600 mb-4 preserve-whitespace" style={{ whiteSpace: 'pre-wrap' }}>{description}</p>}
         {images && images.length > 0 && (
-          <div className="flex gap-2 overflow-auto">
+          <div className="flex flex-col gap-2 overflow-auto items-center">
             {images.map((src, index) => (
-              <Image key={index} src={src} alt={`popup-image-${index}`} width={80} height={80} className="object-cover rounded" />
+              <Image key={index} src={src} alt={`popup-image-${index}`} width={width ? width : 80} height={80} className="object-cover rounded" />
             ))}
           </div>
         )}

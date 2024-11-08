@@ -2,7 +2,7 @@
 
 import { usePathname } from "next/navigation";
 import usoPreposiciones from "./usopreposiciones.json";
-import CustomPopUp from "../../components/CustomPopUp";
+import InfoPopup from './VerbalPopups/UsoPreposicionesPopup';
 import { useState } from "react";
 import Link from "next/link";
 
@@ -10,7 +10,7 @@ const UsoPreposicionesPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
 
-  const { topic, exampleQuestion, exampleOptions, answer, imageURL } =
+  const { topic, exampleOptions, imageURL } =
     usoPreposiciones;
 
   const backgroundColor = pathname.includes("cognitive")
@@ -124,12 +124,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <CustomPopUp
-        title={exampleQuestion}
-        answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
-        isOpen={isPopupOpen}
-        onClose={handleClosePopup}
-      />
+      <InfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
     </>
   );
 };
