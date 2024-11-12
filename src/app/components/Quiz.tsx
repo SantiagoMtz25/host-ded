@@ -1,7 +1,9 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { denormalizeTitle } from "../utils/utils";
 
 type QuestionProps = {
   question: string;
@@ -13,14 +15,28 @@ type QuestionProps = {
 export interface QuizComponentProps {
   title: string;
   description: string;
-  questionDescription?: string;
   questions: QuestionProps[];
+  questionDescription?: string;
+  image?: string;
 }
+
+/**
+ * This component manages all logic for quizes.
+ *
+ * @param title,
+ * @param description,
+ * @param questions
+ * @returns Sort of two components, one for the quiz and the other for the final results
+ * though, for future refactoring, it would be better to separate the quiz results into
+ * a different component to make the code more readable, maintainable, and ensure single
+ * responsibility principle, for separation of concerns.
+ */
 
 const QuizComponent: React.FC<QuizComponentProps> = ({
   title,
   description,
   questions,
+  questionDescription,
 }) => {
   const pathname = usePathname();
 
@@ -40,92 +56,226 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
     ? "bg-[#afdceb]"
     : "bg-[#c0c0c0]";
 
-  const [currentQuestion, setCurrentQuestion] = React.useState<number>(0);
-  const [selectedOption, setSelectedOption] = React.useState<number | null>(null);
-  const [correctAnswers, setCorrectAnswers] = React.useState<number>(0);
-  
+  const [currentQuestion, setCurrentQuestion] = useState<number>(0);
+  const [selectedOption, setSelectedOption] = useState<number | null>(null);
+  const [correctAnswers, setCorrectAnswers] = useState<number>(0);
+  const [messageSelectAnswer, setMessageSelectAnswer] =
+    useState<boolean>(false);
+  const [messageCorrectAnswer, setMessageCorrectAnswer] =
+    useState<boolean>(false);
+  const [messageIncorrectAnswer, setMessageIncorrectAnswer] =
+    useState<boolean>(false);
+  const [showFinalResults, setShowFinalResults] = useState<boolean>(false);
+  const [summary, setSummary] = useState<
+    {
+      question: string;
+      userAnswer: string;
+      correctAnswer: string;
+      color: string;
+      explanation: string;
+      correct: boolean;
+    }[]
+  >([]);
+
   useEffect(() => {
-    setSelectedOption(null); 
+    setSelectedOption(null);
+    setMessageSelectAnswer(false);
   }, [currentQuestion]);
 
   const handleCheckAnswer = () => {
     if (selectedOption === null) {
-      alert("Selecciona una opción");
+      setMessageSelectAnswer(true);
       return;
     }
 
-    if (selectedOption === questions[currentQuestion].answer) {
-      alert("Respuesta correcta");
+    const isCorrect = selectedOption === questions[currentQuestion].answer;
+    const userAnswerText = questions[currentQuestion].options[selectedOption];
+    const correctAnswerText =
+      questions[currentQuestion].options[questions[currentQuestion].answer];
+
+    if (isCorrect) {
       setCorrectAnswers(correctAnswers + 1);
+      setMessageCorrectAnswer(true);
     } else {
-      alert("Respuesta incorrecta");
+      setMessageIncorrectAnswer(true);
     }
 
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      alert(`Has terminado el quiz. ${correctAnswers + 1} respuestas correctas`);
-    }
+    setSummary((prevSummary) => [
+      ...prevSummary,
+      {
+        question: questions[currentQuestion].question,
+        userAnswer: userAnswerText,
+        correctAnswer: correctAnswerText,
+        color: isCorrect ? "bg-green-200" : "bg-red-200",
+        explanation: questions[currentQuestion].explanation || "",
+        correct: isCorrect,
+      },
+    ]);
+
+    // Delay for showing correct or incorrect message before moving to the next question
+    setTimeout(() => {
+      setMessageCorrectAnswer(false);
+      setMessageIncorrectAnswer(false);
+
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(currentQuestion + 1);
+      } else {
+        setShowFinalResults(true);
+      }
+    }, 2000); // Delay of 2 seconds for message display
   };
+
+  const handleRestartQuiz = () => {
+    setCurrentQuestion(0);
+    setSelectedOption(null);
+    setCorrectAnswers(0);
+    setMessageSelectAnswer(false);
+    setMessageCorrectAnswer(false);
+    setMessageIncorrectAnswer(false);
+    setShowFinalResults(false);
+    setSummary([]);
+  };
+
+  const quizTitle: string = title.charAt(0).toUpperCase() + title.slice(1);
 
   return (
     <>
-      <div className="w-full h-full px-2">
-        <h1 className="font-bold text-xl">
-          Quiz de {title.charAt(0).toUpperCase() + title.slice(1)}
-        </h1>
-        <p className="mt-2">{description}</p>
-        <div className="mt-2 flex flex-col gap-2 justify-center items-center">
-          <p className="font-semibold text-lg">Pregunta {currentQuestion + 1} de {questions.length}</p>
-          <h2 className="font-semibold text-lg">
-            {questions[currentQuestion].question}
-          </h2>
-          <div className="flex flex-col gap-2">
-            {questions[currentQuestion].options.map((option, index) => (
-              <button
-              key={index}
-              className={`w-72 min-h-14 cursor-pointer transition-all ${
-                selectedOption === index ? backgroundColor : "bg-slate-200"
-              } text-black px-6 py-2 rounded-2xl
-      ${backgroundColor2}
-      border-b-[4px] hover:brightness-110 active:brightness-90 `}
-              onClick={() => setSelectedOption(selectedOption === index ? null : index)}
-              >
-              {option}
-              </button>
-            ))}
-            <div className="self-end">
-              <button
-                className={`min-h-14 cursor-pointer transition-all ${backgroundColor} text-black px-6 py-2 rounded-2xl
-${backgroundColor2}
-border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
-active:border-b-[2px] active:brightness-90 active:translate-y-[2px] shadow-lg`}
-                onClick={handleCheckAnswer}
-              >
-                Siguiente
-              </button>
-            </div>
-            <progress
-              className="w-72 mt-2 rounded-2xl appearance-none h-4"
-              value={currentQuestion + 1}
-              max={questions.length}
-              style={{
-              backgroundColor: "#e0e0e0",
-              borderRadius: "8px",
-              overflow: "hidden",
+      {showFinalResults ? (
+        <div className="w-full h-full px-2" style={{ whiteSpace: "pre-wrap" }}>
+          <div className="mt-2 flex flex-col gap-2 justify-center items-center">
+            <h1 className="font-bold text-xl">
+              Tuviste {correctAnswers} respuestas correctas de{" "}
+              {questions.length}{" "}
+            </h1>
+            <h2 className="font-semibold text-lg mt-1">Resumen:</h2>
+            <ul className="w-full max-w-md mt-1 text-left">
+              {summary.map((item, index) => (
+                <li
+                  key={index}
+                  className={`mb-2 p-2 border rounded-md ${item.color}`}
+                >
+                  <p className="font-semibold">Pregunta {index + 1}:</p>
+                  <p>{item.question}</p>
+                  <p>
+                    <strong>Tu respuesta:</strong> {item.userAnswer}
+                  </p>
+                  <p>
+                    <strong>Respuesta correcta:</strong> {item.correctAnswer}
+                  </p>
+                  {item.correct ? (
+                    null
+                  ) : (
+                    <p>
+                      <strong>Explicación:</strong> {item.explanation}
+                    </p>
+                  )}
+                </li>
+              ))}
+            </ul>
+            <button
+              className={`w-72 min-h-14 cursor-pointer transition-all ${backgroundColor} text-black px-6 py-2 rounded-2xl ${backgroundColor2} border-b-[4px] hover:brightness-110 active:brightness-90`}
+              onClick={() => {
+                handleRestartQuiz();
               }}
             >
-              <div
-              style={{
-                width: `${((currentQuestion + 1) / questions.length) * 100}%`,
-                backgroundColor: "#4caf50",
-                height: "100%",
-              }}
-              ></div>
-            </progress>
+              Volver a intentar
+            </button>
           </div>
         </div>
-      </div>
+      ) : (
+        <>
+          <div
+            className="w-full h-full px-2"
+            style={{ whiteSpace: "pre-wrap" }}
+          >
+            <h1 className="font-bold text-xl">
+              Quiz de {denormalizeTitle(quizTitle)}
+            </h1>
+            <p className="mt-2">{description}</p>
+            <div className="mt-2 flex flex-col gap-2 justify-center items-center">
+              <p className="font-semibold text-lg">
+                Pregunta {currentQuestion + 1} de {questions.length}
+              </p>
+              {questionDescription && (
+                <p className="font-semibold text-lg">{questionDescription}</p>
+              )}
+              <h2 className="font-semibold text-lg">
+                {questions[currentQuestion].question}
+              </h2>
+              <div className="flex flex-col gap-2">
+                {questions[currentQuestion].options.map((option, index) => (
+                  <button
+                    key={index}
+                    className={`w-72 min-h-14 cursor-pointer transition-all ${
+                      selectedOption === index
+                        ? backgroundColor
+                        : "bg-slate-200"
+                    } text-black px-6 py-2 rounded-2xl ${backgroundColor2} border-b-[4px] hover:brightness-110 active:brightness-90 `}
+                    onClick={() =>
+                      setSelectedOption(selectedOption === index ? null : index)
+                    }
+                  >
+                    {option}
+                  </button>
+                ))}
+                <div className="self-end">
+                  <button
+                    className={`min-h-14 cursor-pointer transition-all ${backgroundColor} text-black px-6 py-2 rounded-2xl ${backgroundColor2} border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px] shadow-lg`}
+                    onClick={handleCheckAnswer}
+                  >
+                    Siguiente
+                  </button>
+                </div>
+                <progress
+                  className="w-72 mt-2 rounded-2xl appearance-none h-4"
+                  value={currentQuestion + 1}
+                  max={questions.length}
+                  style={{
+                    backgroundColor: "#bde2b9",
+                    borderRadius: "8px",
+                    overflow: "hidden",
+                  }}
+                ></progress>
+                {messageSelectAnswer && (
+                  <div className="mt-2 bg-slate-200 p-2 rounded-2xl flex flex-col gap-2 items-center justify-center">
+                    <Image
+                      src="/icons/circle-exclamation.svg"
+                      alt="circle-exclamation"
+                      width={30}
+                      height={30}
+                    />
+                    <p className="text-center font-bold text-xl">
+                      Selecciona una respuesta
+                    </p>
+                  </div>
+                )}
+                {messageCorrectAnswer && (
+                  <div className="mt-2 bg-green-200 p-2 rounded-2xl flex flex-col gap-2 items-center justify-center">
+                    <Image
+                      src="/icons/circle-check.svg"
+                      alt="circle-exclamation"
+                      width={30}
+                      height={30}
+                    />
+                    <p className="text-center font-bold text-xl">Correcto</p>
+                  </div>
+                )}
+                {messageIncorrectAnswer && (
+                  <div className="mt-2 bg-red-200 p-2 rounded-2xl flex flex-col gap-2 items-center justify-center">
+                    <Image
+                      src="/icons/circle-xmark.svg"
+                      alt="circle-exclamation"
+                      width={30}
+                      height={30}
+                    />
+                    <p className="text-center font-bold text-xl">Incorrecto</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };

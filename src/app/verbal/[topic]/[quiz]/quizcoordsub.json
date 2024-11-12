@@ -3,7 +3,7 @@
   "description": "Selecciona el inciso que contiene el uso correcto o incorrecto de palabras subrayadas según se solicita.",
   "questions": [
     {
-      "question": "¿En cuál oración se utiliza incorrectamente las palabras subrayadas?",
+      "question": "El inciso que tiene la oración en que se utiliza incorrectamente las palabras subrayadas.",
       "options": [
         "Nadie lo sabe, si no el director.",
         "Si no llegas pronto, me marcharé.",
@@ -14,7 +14,7 @@
       "explanation": "Está mal empleada la palabra porque se refiere a oposición o contrariedad."
     },
     {
-      "question": "¿Cuáles de los coordinantes subrayados están escritos y utilizados correctamente?",
+      "question": "¿ Cuáles de los coordinantes subrayados están escritos y utilizados correctamente ? \nJorge prometió a su madre cuidarse (1)a simismo mientras ella estuviese fuera de casa. (2)Asimismo, prometió ir al consultorio de su médico cuando se sintiera mal. Durante ese intervalo él aprendió a cuidarse (3)a sí mismo porque (4)a simismo quería su madre que lo hiciera.",
       "options": [
         "2",
         "1",
@@ -36,7 +36,7 @@
       "explanation": "Está incorrectamente escrita ya que aquí está empleada como un pronombre investigativo y debió haberse escrito separada 'por qué'."
     },
     {
-      "question": "¿En cuál oración se utiliza incorrectamente las palabras subrayadas?",
+      "question": "El inciso que tiene la oración en que se utiliza incorrectamente las palabras subrayadas.",
       "options": [
         "Dondequiera que te halles, escribe.",
         "Diga que quienquiera entrar que entre.",

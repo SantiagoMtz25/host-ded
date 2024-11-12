@@ -93,7 +93,7 @@ const page = () => {
               <div className="flex items-center gap-4 bg-white px-4 min-h-14">
                 <p className="text-[#111418] text-base font-normal leading-normal flex-1">
                   <a target="_blank" href="https://www.shutterstock.com/es/">
-                    Shutterstock
+                    Shutterstock: https://www.shutterstock.com/es/
                   </a>
                 </p>
               </div>

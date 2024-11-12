@@ -55,7 +55,7 @@
         "Miguel ganó 8, Hilarito ganó 18"
       ],
       "answer": 0,
-      "explanation": "Llamemos \"x\" al número de juegos ganados por Miguel y \"y\" al número de juegos ganados por Hilarito. Total de juegos = 26. 5x = dinero ganado por Miguel y 8y = dinero ganado por Hilarito. Se tiene: (1) x + y = 26 (juegos totales) y (2) 5x = 8y (dinero ganado por cada uno). Solución: x = 16 y y = 10."
+      "explanation": "Llamemos \"x\" al número de juegos ganados por Miguel y \"y\" al número de juegos ganados por Hilarito. Total de juegos = 26. 5x = dinero ganado por Miguel y 8y = dinero ganado por Hilarito. Se tiene: x + y = 26 (juegos totales) y 5x = 8y (dinero ganado por cada uno). Solución: x = 16 y y = 10."
     },
     {
       "question": "Cuatro amigos se disponen a cruzar un río utilizando para ello una lancha tan frágil que únicamente soporta 100 kg de peso. Memo pesa 92 kg, Luis pesa 47 kg, Carlos pesa 49 kg y Rubén pesa 89 kg. El inciso que tiene el número de viajes que deberán hacer para cruzar los cuatro al otro lado del río es",
@@ -66,7 +66,7 @@
         "9"
       ],
       "answer": 3,
-      "explanation": "1º viaje: Cruzan Luis y Carlos juntos. 2º viaje: Regresa Luis. 3º viaje: Cruza Rubén. 4º viaje: Regresa Carlos. 5º viaje: Luis y Carlos cruzan nuevamente. 6º viaje: Regresa Luis. 7º viaje: Cruza Memo. 8º viaje: Regresa Carlos. 9º viaje: Finalmente cruzan Carlos y Luis."
+      "explanation": "1º viaje: Cruzan Luis y Carlos juntos. \n2º viaje: Regresa Luis. \n3º viaje: Cruza Rubén. \n4º viaje: Regresa Carlos. \n5º viaje: Luis y Carlos cruzan nuevamente. \n6º viaje: Regresa Luis. \n7º viaje: Cruza Memo. \n8º viaje: Regresa Carlos. \n9º viaje: Finalmente cruzan Carlos y Luis."
     },
     {
       "question": "Carlos, Enrique, Lorena, Bety, Antonio, Manolo, Daniel y Rubén están jugando con menos de doce monedas. El juego consiste en tomar de una urna, de un solo manotazo, una o más monedas. Se sabe que Manolo sacó más que Bety, pero menos que Carlos. Ningún jugador sacó dos monedas. Carlos sacó tantas como Daniel. Sólo uno de los ocho no sacó ninguna moneda. Hubo empate múltiple de jugadores con una moneda. El inciso que contiene el número de monedas que tiene cada jugador, en el orden en que aparecen en el primer renglón es",
