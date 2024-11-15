@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
 import { denormalizeTitle } from "../utils/utils";
+import { useDarkMode } from "../hooks/useDarkMode";
 
 type QuestionProps = {
   question: string;
@@ -20,18 +21,6 @@ export interface QuizComponentProps {
   image?: string;
 }
 
-/**
- * This component manages all logic for quizes.
- *
- * @param title,
- * @param description,
- * @param questions
- * @returns Sort of two components, one for the quiz and the other for the final results
- * though, for future refactoring, it would be better to separate the quiz results into
- * a different component to make the code more readable, maintainable, and ensure single
- * responsibility principle, for separation of concerns.
- */
-
 const QuizComponent: React.FC<QuizComponentProps> = ({
   title,
   description,
@@ -39,6 +28,8 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
   questionDescription,
 }) => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -85,6 +76,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
   const handleCheckAnswer = () => {
     if (selectedOption === null) {
       setMessageSelectAnswer(true);
+      setTimeout(() => setMessageSelectAnswer(false), 2000); // Hide message after 2 seconds
       return;
     }
 
@@ -145,10 +137,10 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
           <div className="mt-2 flex flex-col gap-2 justify-center items-center">
             <h1 className="font-bold text-xl">
               Tuviste {correctAnswers} respuestas correctas de{" "}
-              {questions.length}{" "}
+              {questions.length}
             </h1>
             <h2 className="font-semibold text-lg mt-1">Resumen:</h2>
-            <ul className="w-full max-w-md mt-1 text-left">
+            <ul className="w-full max-w-md mt-1 text-left text-black">
               {summary.map((item, index) => (
                 <li
                   key={index}
@@ -162,9 +154,7 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
                   <p>
                     <strong>Respuesta correcta:</strong> {item.correctAnswer}
                   </p>
-                  {item.correct ? (
-                    null
-                  ) : (
+                  {item.correct ? null : (
                     <p>
                       <strong>Explicación:</strong> {item.explanation}
                     </p>
@@ -174,107 +164,100 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
             </ul>
             <button
               className={`w-72 min-h-14 cursor-pointer transition-all ${backgroundColor} text-black px-6 py-2 rounded-2xl ${backgroundColor2} border-b-[4px] hover:brightness-110 active:brightness-90`}
-              onClick={() => {
-                handleRestartQuiz();
-              }}
+              onClick={handleRestartQuiz}
             >
               Volver a intentar
             </button>
           </div>
         </div>
       ) : (
-        <>
-          <div
-            className="w-full h-full px-2"
-            style={{ whiteSpace: "pre-wrap" }}
-          >
-            <h1 className="font-bold text-xl">
-              Quiz de {denormalizeTitle(quizTitle)}
-            </h1>
-            <p className="mt-2">{description}</p>
-            <div className="mt-2 flex flex-col gap-2 justify-center items-center">
-              <p className="font-semibold text-lg">
-                Pregunta {currentQuestion + 1} de {questions.length}
-              </p>
-              {questionDescription && (
-                <p className="font-semibold text-lg">{questionDescription}</p>
-              )}
-              <h2 className="font-semibold text-lg">
-                {questions[currentQuestion].question}
-              </h2>
-              <div className="flex flex-col gap-2">
-                {questions[currentQuestion].options.map((option, index) => (
-                  <button
-                    key={index}
-                    className={`w-72 min-h-14 cursor-pointer transition-all ${
-                      selectedOption === index
-                        ? backgroundColor
-                        : "bg-slate-200"
-                    } text-black px-6 py-2 rounded-2xl ${backgroundColor2} border-b-[4px] hover:brightness-110 active:brightness-90 `}
-                    onClick={() =>
-                      setSelectedOption(selectedOption === index ? null : index)
-                    }
-                  >
-                    {option}
-                  </button>
-                ))}
-                <div className="self-end">
-                  <button
-                    className={`min-h-14 cursor-pointer transition-all ${backgroundColor} text-black px-6 py-2 rounded-2xl ${backgroundColor2} border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px] shadow-lg`}
-                    onClick={handleCheckAnswer}
-                  >
-                    Siguiente
-                  </button>
-                </div>
-                <progress
-                  className="w-72 mt-2 rounded-2xl appearance-none h-4"
-                  value={currentQuestion + 1}
-                  max={questions.length}
-                  style={{
-                    backgroundColor: "#bde2b9",
-                    borderRadius: "8px",
-                    overflow: "hidden",
-                  }}
-                ></progress>
-                {messageSelectAnswer && (
-                  <div className="mt-2 bg-slate-200 p-2 rounded-2xl flex flex-col gap-2 items-center justify-center">
-                    <Image
-                      src="/icons/circle-exclamation.svg"
-                      alt="circle-exclamation"
-                      width={30}
-                      height={30}
-                    />
-                    <p className="text-center font-bold text-xl">
-                      Selecciona una respuesta
-                    </p>
-                  </div>
-                )}
-                {messageCorrectAnswer && (
-                  <div className="mt-2 bg-green-200 p-2 rounded-2xl flex flex-col gap-2 items-center justify-center">
-                    <Image
-                      src="/icons/circle-check.svg"
-                      alt="circle-exclamation"
-                      width={30}
-                      height={30}
-                    />
-                    <p className="text-center font-bold text-xl">Correcto</p>
-                  </div>
-                )}
-                {messageIncorrectAnswer && (
-                  <div className="mt-2 bg-red-200 p-2 rounded-2xl flex flex-col gap-2 items-center justify-center">
-                    <Image
-                      src="/icons/circle-xmark.svg"
-                      alt="circle-exclamation"
-                      width={30}
-                      height={30}
-                    />
-                    <p className="text-center font-bold text-xl">Incorrecto</p>
-                  </div>
-                )}
+        <div className="w-full h-full px-2" style={{ whiteSpace: "pre-wrap" }}>
+          <h1 className="font-bold text-xl">Quiz de {denormalizeTitle(quizTitle)}</h1>
+          <p className="mt-2">{description}</p>
+          <div className="mt-2 flex flex-col gap-2 justify-center items-center">
+            <p className="font-semibold text-lg">
+              Pregunta {currentQuestion + 1} de {questions.length}
+            </p>
+            {questionDescription && (
+              <p className="font-semibold text-lg">{questionDescription}</p>
+            )}
+            <h2 className="font-semibold text-lg">
+              {questions[currentQuestion].question}
+            </h2>
+            <div className="flex flex-col gap-2">
+              {questions[currentQuestion].options.map((option, index) => (
+                <button
+                  key={index}
+                  className={`w-72 min-h-14 cursor-pointer transition-all font-bold ${
+                    selectedOption === index ? backgroundColor : "bg-slate-200"
+                  } text-black px-6 py-2 rounded-2xl ${backgroundColor2} border-b-[4px] hover:brightness-110 active:brightness-90`}
+                  onClick={() =>
+                    setSelectedOption(selectedOption === index ? null : index)
+                  }
+                >
+                  {option}
+                </button>
+              ))}
+              <div className="self-end">
+                <button
+                  className={`min-h-14 cursor-pointer transition-all ${backgroundColor} text-black px-6 py-2 rounded-2xl ${backgroundColor2} border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px] active:border-b-[2px] active:brightness-90 active:translate-y-[2px] shadow-lg`}
+                  onClick={handleCheckAnswer}
+                >
+                  Siguiente
+                </button>
               </div>
+              <progress
+                className="w-72 mt-2 rounded-2xl appearance-none h-4"
+                value={currentQuestion + 1}
+                max={questions.length}
+                style={{
+                  backgroundColor: "#bde2b9",
+                  borderRadius: "8px",
+                  overflow: "hidden",
+                }}
+              ></progress>
+              {messageSelectAnswer && (
+                <div className="mt-2 bg-slate-200 p-2 rounded-2xl flex flex-col gap-2 items-center justify-center">
+                  <Image
+                    src="/icons/circle-exclamation.svg"
+                    alt="circle-exclamation"
+                    width={30}
+                    height={30}
+                  />
+                  <p className="text-center font-bold text-xl text-black">
+                    Selecciona una respuesta
+                  </p>
+                </div>
+              )}
+              {messageCorrectAnswer && (
+                <div className="mt-2 bg-green-200 p-2 rounded-2xl flex flex-col gap-2 items-center justify-center">
+                  <Image
+                    src="/icons/circle-check.svg"
+                    alt="circle-check"
+                    width={30}
+                    height={30}
+                  />
+                  <p className="text-center font-bold text-xl text-black">
+                    Correcto
+                  </p>
+                </div>
+              )}
+              {messageIncorrectAnswer && (
+                <div className="mt-2 bg-red-200 p-2 rounded-2xl flex flex-col gap-2 items-center justify-center">
+                  <Image
+                    src="/icons/circle-xmark.svg"
+                    alt="circle-xmark"
+                    width={30}
+                    height={30}
+                  />
+                  <p className="text-center font-bold text-xl text-black">
+                    Incorrecto
+                  </p>
+                </div>
+              )}
             </div>
           </div>
-        </>
+        </div>
       )}
     </>
   );

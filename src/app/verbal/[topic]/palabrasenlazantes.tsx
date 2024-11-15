@@ -5,10 +5,13 @@ import palabrasEnlazantes from "./palabrasenlazantes.json";
 import InfoPopupPalabrasEnlazantes from "./VerbalPopups/PalabrasEnlazantesPopup";
 import { useState } from "react";
 import Link from "next/link";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const PalabrasEnlazantesPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, imageURL } = palabrasEnlazantes;
 
@@ -78,7 +81,7 @@ const PalabrasEnlazantesPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105 flex-grow`}
           >
             <p>{option}</p>
           </div>
@@ -120,6 +123,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       /> */}
       <InfoPopupPalabrasEnlazantes
         isOpen={isPopupOpen}
+        isDarkMode={isDarkMode}
         onClose={handleClosePopup}
       />
     </>

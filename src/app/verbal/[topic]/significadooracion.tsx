@@ -5,10 +5,13 @@ import significadoOracion from "./significadooracion.json";
 import { useState } from "react";
 import InfoPopupSignificadoOracion from "./VerbalPopups/SignificadoOracionPopup";
 import Link from "next/link";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const SignificadoOracionPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions } = significadoOracion;
 
@@ -72,7 +75,7 @@ const SignificadoOracionPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="flex-grow bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105 flex-grow`}
           >
             <p>{option}</p>
           </div>
@@ -114,6 +117,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       /> */}
       <InfoPopupSignificadoOracion
         isOpen={isPopupOpen}
+        isDarkMode={isDarkMode}
         onClose={handleClosePopup}
       />
     </>

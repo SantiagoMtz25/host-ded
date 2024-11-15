@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import areasYComparaciones from "./areasycomparaciones.json";
 import InfoPopupAreasComparaciones from './InfoMathPopup/AreasComparacionesPopup';
 import { useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const AreasYComparacionesPage: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, imageURL } =
     areasYComparaciones;
@@ -75,7 +78,7 @@ const AreasYComparacionesPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -116,6 +119,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
 
       <InfoPopupAreasComparaciones
         isOpen={isPopupOpen}
+        isDarkMode={isDarkMode}
         onClose={handleClosePopup}  
       />
     </>

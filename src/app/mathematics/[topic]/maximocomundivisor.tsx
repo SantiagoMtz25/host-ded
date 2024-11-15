@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import maximoComunDivisor from "./maximocomundivisor.json";
 import InfoPopupMaxComunDiv from './InfoMathPopup/MaxComunDivPopup';
 import { useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const MaximoComunDivisorPage: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, imageURL } = maximoComunDivisor;
 
@@ -104,7 +107,7 @@ const MaximoComunDivisorPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -142,7 +145,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       /> */}
-      <InfoPopupMaxComunDiv isOpen={isPopupOpen} onClose={handleClosePopup} />
+      <InfoPopupMaxComunDiv isOpen={isPopupOpen} isDarkMode={isDarkMode} onClose={handleClosePopup} />
     </>
   );
 };

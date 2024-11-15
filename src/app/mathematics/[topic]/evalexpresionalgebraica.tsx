@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import expresionAlgebraica from "./evalexpresionalgebraica.json";
 import CustomPopUp from "../../components/CustomPopUp";
 import { useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const ExpresionAlgebraicaPage: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, answer, imageURL, description } =
     expresionAlgebraica;
@@ -52,15 +55,15 @@ const ExpresionAlgebraicaPage: React.FC = () => {
         Es importante considerar al evaluar una expresión algebraica alguno de
         los siguientes conceptos:
       </p>
-      <div className="grid grid-cols-2 gap-4 p-4 bg-gray-100 mt-4">
+      <div className={`grid grid-cols-2 gap-4 p-4 ${isDarkMode ? "bg-gray-800" : "bg-gray-100"} mt-4`}>
         {/* Row 1: Headers */}
-        <div className="bg-[#afdceb] font-bold p-2">
+        <div className={`${isDarkMode ? "bg-gray-700" : "bg-[#afdceb]"} font-bold p-2`}>
           Signos en las operaciones suma y/o resta
         </div>
-        <div className="bg-[#afdceb] font-bold p-2">Ejemplo</div>
+        <div className={`${isDarkMode ? "bg-gray-700" : "bg-[#afdceb]"} font-bold p-2`}>Ejemplo</div>
 
         {/* Row 2: Addition and Subtraction Rules */}
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className={`border p-4 ${isDarkMode ? "bg-gray-700" : "bg-[#cae9f5]"}`}>
           <p>
             El signo del resultado será el signo del número con mayor valor
             absoluto.
@@ -72,7 +75,7 @@ const ExpresionAlgebraicaPage: React.FC = () => {
         </div>
 
         {/* Row 3: Same Sign Addition */}
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className={`border p-4 ${isDarkMode ? "bg-gray-700" : "bg-[#cae9f5]"}`}>
           <p>
             Si los signos de los dos números son iguales, el resultado tiene el
             signo que lleven los números.
@@ -84,7 +87,7 @@ const ExpresionAlgebraicaPage: React.FC = () => {
         </div>
 
         {/* Row 4: Multiplication Sign Rules */}
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className={`border p-4 ${isDarkMode ? "bg-gray-700" : "bg-[#cae9f5]"}`}>
           Signos en la multiplicación
         </div>
         <div className="border p-4">
@@ -99,7 +102,7 @@ const ExpresionAlgebraicaPage: React.FC = () => {
         </div>
 
         {/* Row 5: Same Sign Multiplication */}
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className={`border p-4 ${isDarkMode ? "bg-gray-700" : "bg-[#cae9f5]"}`}>
           <p>
             La multiplicación de números con signos iguales da resultado
             positivo (+).
@@ -131,7 +134,7 @@ const ExpresionAlgebraicaPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -169,6 +172,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         description={description}
         images={imageURL}
         width={250}
+        isDarkMode={isDarkMode}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

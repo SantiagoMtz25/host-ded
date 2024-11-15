@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import cuadradoFraccion from './cuadradofraccion.json';
 import { useState } from "react";
 import CustomPopUp from "../../components/CustomPopUp";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const CuadradoFraccionPage: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, answer, description } = cuadradoFraccion;
 
@@ -56,7 +59,7 @@ const CuadradoFraccionPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -92,6 +95,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         description={description}
+        isDarkMode={isDarkMode}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

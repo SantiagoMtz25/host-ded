@@ -6,9 +6,12 @@ import CustomPopUp from "../../components/CustomPopUp";
 import InfoPopupCongruenciaTriangulos from "./MathPopup/CongruenciaTriangulos";
 import InfoPopupSemejanzaTriangulos from "./MathPopup/SemejanzaTriangulos";
 import { useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const SemejanzaCongruenciaPage: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, answer, imageURL } =
     semejanzaCongruencia;
@@ -101,7 +104,7 @@ const SemejanzaCongruenciaPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -136,6 +139,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isDarkMode={isDarkMode}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />
@@ -143,10 +147,12 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       {/* Info Popup */}
       <InfoPopupCongruenciaTriangulos
         isOpen={isPopupCongruenciaOpen}
+        isDarkMode={isDarkMode}
         onClose={() => setPopupCongruenciaOpen(false)}
       />
       <InfoPopupSemejanzaTriangulos
         isOpen={isPopupSemejanzaOpen}
+        isDarkMode={isDarkMode}
         onClose={() => setPopupSemejanzaOpen(false)}
       />
     </>

@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import evaluacionFunciones from "./evaluacionfunciones.json";
 import CustomPopUp from "../../components/CustomPopUp";
 import { useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const EvaluacionFuncionesPage: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, answer, imageURL, description } =
     evaluacionFunciones;
@@ -86,7 +89,7 @@ const EvaluacionFuncionesPage: React.FC = () => {
       <p className="mt-4">
         Por lo que, para los valores de x = 1, 2, 3, se tiene:
       </p>
-      <div className="p-4 text-gray-800 justify-self-center text-center">
+      <div className="p-4 justify-self-center text-center">
         <p className="font-bold">y = f(x) = 2x</p>
         <p>f(1) = 2(1) = 2 &nbsp; → &nbsp; y = 2</p>
         <p>f(2) = 2(2) = 4 &nbsp; → &nbsp; y = 4</p>
@@ -109,7 +112,7 @@ const EvaluacionFuncionesPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -145,6 +148,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         description={description}
+        isDarkMode={isDarkMode}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

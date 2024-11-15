@@ -1,9 +1,11 @@
+"use client";
 
 import NavCard from "./components/NavCard";
 import homedata from "../../public/homedata.json";
 import FooterComponent from "./components/Footer";
 import NavBar from "./components/NavBar";
 import Carousel from "./components/Carousel";
+import { useDarkMode } from "./hooks/useDarkMode";
 
 interface Course {
   title: string;
@@ -18,6 +20,12 @@ const iconMap: { [key: string]: string } = {
   "fa-solid fa-calculator": "/icons/faCalculator.svg",
 };
 
+/**
+ * 
+ * @returns Home route component which displays the home page of the website.
+ * Shows a landing carousel, a list of three courses to review topics and a footer.
+ */
+
 export default function Home() {
   const courses: Course[] = homedata.courses.flatMap((course) =>
     Object.values(course)
@@ -26,8 +34,10 @@ export default function Home() {
   const title: string = homedata.title;
   const description: string = homedata.description;
 
+  const [isDarkMode] = useDarkMode();
+
   return (
-    <div className="flex flex-col justify-center">
+    <div className={`flex flex-col justify-center ${isDarkMode ? 'dark' : ''}`}>
       <div className="w-full lg:max-w-[1120px] self-center">
         <NavBar />
       </div>

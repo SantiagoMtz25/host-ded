@@ -9,9 +9,12 @@ import InfoPopupCilindro from "./MathPopup/CilindroPopup";
 import InfoPopupCono from "./MathPopup/ConoPopup";
 import InfoPopupEsfera from "./MathPopup/EsferaPopup";
 import { useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const VolumenesPage: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, answer, imageURL, description } =
     volumenes;
@@ -117,7 +120,7 @@ const VolumenesPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -151,6 +154,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         description={description}
+        isDarkMode={isDarkMode}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />
@@ -158,22 +162,27 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       {/* Info Popup */}
       <InfoPopupPrisma
         isOpen={isPopupPrismaOpen}
+        isDarkMode={isDarkMode}
         onClose={() => setPopupPrismaOpen(false)}
       />
       <InfoPopupCubo
         isOpen={isPopupCuboOpen}
+        isDarkMode={isDarkMode}
         onClose={() => setPopupCuboOpen(false)}
       />
       <InfoPopupCilindro
         isOpen={isPopupCilindroOpen}
+        isDarkMode={isDarkMode}
         onClose={() => setPopupCilindroOpen(false)}
       />
       <InfoPopupCono
         isOpen={isPopupConoOpen}
+        isDarkMode={isDarkMode}
         onClose={() => setPopupConoOpen(false)}
       />
       <InfoPopupEsfera
         isOpen={isPopupEsferaOpen}
+        isDarkMode={isDarkMode}
         onClose={() => setPopupEsferaOpen(false)}
       />
     </>

@@ -3,10 +3,13 @@
 import { usePathname } from "next/navigation";
 import expresionesAlgebraicas from "./expresionesalgebraicas.json";
 import InfoPopupExpresionAlgebraica from './InfoMathPopup/ExpresionAlgebraicaPopup';
-import { useState } from "react";
+import { use, useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode"
 
 const ExpresionesAlgebraicasPage: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions } =
     expresionesAlgebraicas;
@@ -51,7 +54,7 @@ const ExpresionesAlgebraicasPage: React.FC = () => {
       <p className="mt-4">
         <span className="font-bold">Instrucciones:</span>
       </p>
-      <ul className="list-decimal list-inside space-y-2 text-gray-800 mt-4 ml-4">
+      <ul className="list-decimal list-inside space-y-2 mt-4 ml-4">
         <li>Lee detenidamente el problema que se presenta.</li>
         <li>Descubre cuál es el dato proporcionado como referencia.</li>
         <li>Relaciona todos los datos restantes con la referencia.</li>
@@ -61,7 +64,7 @@ const ExpresionesAlgebraicasPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -101,6 +104,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       /> */}
       <InfoPopupExpresionAlgebraica
         isOpen={isPopupOpen}
+        isDarkMode={isDarkMode}
         onClose={handleClosePopup}
       />
     </>

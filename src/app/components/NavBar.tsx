@@ -2,19 +2,23 @@
 
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 interface NavBarProps {
   title?: string;
 }
 
-const NavBar: React.FC<NavBarProps> = ({ }) => {
+const NavBar: React.FC<NavBarProps> = ({}) => {
   const pathname = usePathname();
-  const imageAlign = pathname === "/" || pathname === "/credits" ? "items-center" : "items-end";
+  const imageAlign =
+    pathname === "/" || pathname === "/credits" ? "items-center" : "items-end";
 
   return (
     <>
-      <header className={`flex flex-col md:flex-row ${imageAlign} md:items-center justify-between content-between whitespace-nowrap  border-solid border-b-[#abb0b5] px-5 py-3 self-center`}>
+      <header
+        className={`flex flex-col md:flex-row ${imageAlign} md:items-center justify-between content-between whitespace-nowrap  border-solid border-b-[#abb0b5] px-5 py-3 self-center`}
+      >
         {/* <div className="flex items-center gap-4 text-[#0d151c]">
           <div className="size-4">
             <svg
@@ -32,20 +36,24 @@ const NavBar: React.FC<NavBarProps> = ({ }) => {
             {title}
           </h2>
         </div> */}
-        <Image
-          src="/images/Tec.png"
-          alt={"Tecnológico de Monterrey"}
-          width={250}
-          height={50}
-          className="w-40 sm:w-60"
-        />
-        <Image
-          src="/images/Recurso 3cva 3.png"
-          alt={"Centro Virtual de Aprendizaje"}
-          width={250}
-          height={50}
-          className="w-40 sm:w-60"
-        />
+        <Link href="/">
+          <Image
+            src="/images/Tec.png"
+            alt={"Tecnológico de Monterrey"}
+            width={250}
+            height={50}
+            className="w-40 sm:w-60"
+          />
+        </Link>
+        <Link href="/">
+          <Image
+            src="/images/CVA LOGOTIPO 2.png"
+            alt={"Centro Virtual de Aprendizaje"}
+            width={250}
+            height={50}
+            className="w-40 sm:w-60"
+          />
+        </Link>
         {/* <button
             className="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-xl h-10 px-4 bg-[#2094f3] text-slate-50 text-sm font-bold leading-normal tracking-[0.015em]"
           >

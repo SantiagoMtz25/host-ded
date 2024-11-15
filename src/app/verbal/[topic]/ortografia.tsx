@@ -5,10 +5,13 @@ import ortografia from "./ortografia.json";
 import CustomPopUp from "../../components/CustomPopUp";
 import { useState } from "react";
 import Link from "next/link";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const OrtografiaPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, answer } = ortografia;
 
@@ -78,7 +81,7 @@ const OrtografiaPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="flex-grow bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105 flex-grow`}
           >
             <p>{option}</p>
           </div>
@@ -116,6 +119,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
         isOpen={isPopupOpen}
+        isDarkMode={isDarkMode}
         onClose={handleClosePopup}
       />
     </>

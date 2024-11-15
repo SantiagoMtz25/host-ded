@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import probabilidad1 from "./probabilidad1.json";
 import InfoPopupProbabilidad1 from './InfoMathPopup/Probabilidad1Popup';
 import { useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const Probabilidad1Page: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions } = probabilidad1;
 
@@ -87,7 +90,7 @@ const Probabilidad1Page: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -125,7 +128,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       /> */}
-      <InfoPopupProbabilidad1 isOpen={isPopupOpen} onClose={handleClosePopup} />
+      <InfoPopupProbabilidad1 isOpen={isPopupOpen} isDarkMode={isDarkMode} onClose={handleClosePopup} />
     </>
   );
 };

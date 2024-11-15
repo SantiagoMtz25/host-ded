@@ -3,6 +3,19 @@
 // Page.tsx
 import React from 'react';
 import { usePathname } from "next/navigation";
+import dynamic from 'next/dynamic';
+
+const ClasesDeOracionComponent = dynamic(() => import('./clasesoracion'));
+const CoordinantesOSubordinantesComponent = dynamic(() => import('./coordysub'));
+const ElUsoDelGerundioComponent = dynamic(() => import('./gerundio'));
+const LecturasComponent = dynamic(() => import('./lecturas'));
+const LosElementosComunesDeLaOracionComponent = dynamic(() => import('./elecomunesoracion'));
+const OrtografiaComponent = dynamic(() => import('./ortografia'));
+const SignificadoDeUnaOracionComponent = dynamic(() => import('./significadooracion'));
+const UsoDeLasPalabrasEnlazantesComponent = dynamic(() => import('./palabrasenlazantes'));
+const UsoDeLasPreposicionesComponent = dynamic(() => import('./usopreposiciones'));
+
+/* 
 import ClasesDeOracionComponent from "./clasesoracion";
 import CoordinantesOSubordinantesComponent from "./coordysub";
 import ElUsoDelGerundioComponent from "./gerundio";
@@ -11,9 +24,9 @@ import LosElementosComunesDeLaOracionComponent from "./elecomunesoracion";
 import OrtografiaComponent from "./ortografia";
 import SignificadoDeUnaOracionComponent from "./significadooracion";
 import UsoDeLasPalabrasEnlazantesComponent from "./palabrasenlazantes";
-import UsoDeLasPreposicionesComponent from "./usopreposiciones";
+import UsoDeLasPreposicionesComponent from "./usopreposiciones"; */
 
-const topicsMap: { [key: string]: React.FC } = {
+const topicsMap: { [key: string]: React.ComponentType } = {
   'clases-de-oracion': ClasesDeOracionComponent,
   'coordinantes-o-subordinantes': CoordinantesOSubordinantesComponent,
   'el-uso-del-gerundio': ElUsoDelGerundioComponent,

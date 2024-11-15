@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import dosPuntos from "./dospuntos.json";
 import CustomPopUp from "../../components/CustomPopUp";
 import { useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const DistanciaDosPuntosPage: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, answer, imageURL } =
     dosPuntos;
@@ -68,7 +71,7 @@ const DistanciaDosPuntosPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -103,6 +106,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       <CustomPopUp
         title={exampleQuestion}
         answer={`La respuesta correcta es: ${exampleOptions[answer]}`}
+        isDarkMode={isDarkMode}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       />

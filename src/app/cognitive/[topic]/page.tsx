@@ -3,7 +3,18 @@
 // Page.tsx
 import React from 'react';
 import { usePathname } from "next/navigation";
-import AnalogiaComponent from "./analogia";
+import dynamic from "next/dynamic";
+
+const AnalogiaComponent = dynamic(() => import("./analogia"));
+const Diagramas1Component = dynamic(() => import("./diagramas1"));
+const Diagramas2Component = dynamic(() => import("./diagramas2"));
+const MetaforasYAnalogiasComponent = dynamic(() => import("./metaforasyanalogias"));
+const RazonamientoCondicionalComponent = dynamic(() => import("./razcondicional"));
+const RazonamientoPracticoComponent = dynamic(() => import("./razpractico"));
+const SecuenciasYMatricesComponent = dynamic(() => import("./secuenciasymatrices"));
+const SignificadoDeMetaforasComponent = dynamic(() => import("./significadometaforas"));
+const TransformacionesLogicasComponent = dynamic(() => import("./transformacioneslogicas"));
+/* 
 import Diagramas1Component from './diagramas1';
 import Diagramas2Component from "./diagramas2";
 import MetaforasYAnalogiasComponent from "./metaforasyanalogias";
@@ -12,8 +23,8 @@ import RazonamientoPracticoComponent from "./razpractico";
 import SecuenciasYMatricesComponent from "./secuenciasymatrices";
 import SignificadoDeMetaforasComponent from "./significadometaforas";
 import TransformacionesLogicasComponent from "./transformacioneslogicas";
-
-const topicsMap: { [key: string]: React.FC } = {
+ */
+const topicsMap: { [key: string]: React.ComponentType } = {
   analogia: AnalogiaComponent,
   'diagramas-1': Diagramas1Component,
   'diagramas-2': Diagramas2Component,

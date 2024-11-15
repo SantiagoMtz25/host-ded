@@ -3,10 +3,11 @@
 import { usePathname } from "next/navigation";
 
 interface GoBackBtnProps {
+  isDarkMode: boolean;
   color?: string;
 }
 
-const GoBackBtn: React.FC<GoBackBtnProps> = () => {
+const GoBackBtn: React.FC<GoBackBtnProps> = ({ isDarkMode }) => {
   const pathname = usePathname();
 
   // Determine the background color based on the pathname
@@ -21,7 +22,7 @@ const GoBackBtn: React.FC<GoBackBtnProps> = () => {
   return (
     /* From Uiverse.io by AKAspidey01 */
     <button
-      className="w-full bg-white text-center rounded-2xl h-14 relative text-black text-2xl font-semibold group"
+      className={`w-full ${isDarkMode ? "bg-gray-800 text-white" : "bg-white text-black"} text-center rounded-2xl h-14 relative text-2xl font-semibold group`}
       type="button"
       onClick={() => window.location.href = "/"}
     >

@@ -5,10 +5,13 @@ import usoPreposiciones from "./usopreposiciones.json";
 import InfoPopup from './VerbalPopups/UsoPreposicionesPopup';
 import { useState } from "react";
 import Link from "next/link";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const UsoPreposicionesPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleOptions, imageURL } =
     usoPreposiciones;
@@ -74,7 +77,9 @@ const UsoPreposicionesPage: React.FC = () => {
         por la palabra o palabras en que concluye la relación que se está
         expresando.
       </p>
-      {renderImage(imageURL)}
+      <div className="flex justify-center">
+        {renderImage(imageURL)}
+      </div>
       <p className="mt-4 font-bold text-green-500">Ejemplo</p>
       <p className="mt-4">
         <span className="font-bold">Instrucciones:</span> identifica el inciso
@@ -90,7 +95,7 @@ const UsoPreposicionesPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105 flex-grow"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105 flex-grow`}
           >
             <p>{option}</p>
           </div>
@@ -124,7 +129,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       </p>
 
       {/* Popup component */}
-      <InfoPopup isOpen={isPopupOpen} onClose={handleClosePopup} />
+      <InfoPopup isOpen={isPopupOpen} isDarkMode={isDarkMode} onClose={handleClosePopup} />
     </>
   );
 };

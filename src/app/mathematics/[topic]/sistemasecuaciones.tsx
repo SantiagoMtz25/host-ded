@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import sistemasEcuaciones from "./sistemasecuaciones.json";
 import InfoPopupSistemasEcuaciones from './InfoMathPopup/SistemasEcuacionesPopup';
 import { useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const SistemasEcuacionesPage: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions } = sistemasEcuaciones;
 
@@ -47,18 +50,18 @@ const SistemasEcuacionesPage: React.FC = () => {
         cuales representan lugares geométricos que pueden cumplir con una de
         tres características:
       </p>
-      <div className="grid grid-cols-2 gap-4 p-4 bg-gray-100">
+      <div className={`grid grid-cols-2 gap-4 p-4 ${isDarkMode ? "bg-gray-800" : "bg-gray-100"} mt-4`}>
         {/* Row 1: Headers */}
-        <div className="bg-[#afdceb] font-bold p-2 text-center">
+        <div className={`${isDarkMode ? "bg-gray-700" : "bg-[#afdceb]"} font-bold p-2 text-center`}>
           #
         </div>
-        <div className="bg-[#afdceb] font-bold p-2">Descripción</div>
+        <div className={`${isDarkMode ? "bg-gray-700" : "bg-[#afdceb]"} font-bold p-2`}>Descripción</div>
 
         {/* Row 2: Condition 1 */}
-        <div className="border p-4 bg-[#cae9f5] font-bold text-center">
+        <div className={`border p-4 ${isDarkMode ? "bg-gray-700" : "bg-[#cae9f5]"} text-center`}>
           1
         </div>
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className="border p-4">
           <p>
             Los lugares geométricos se intersecan (se cortan), en uno o más
             puntos. En este caso se dice que el sistema sí tiene solución y esa
@@ -68,10 +71,10 @@ const SistemasEcuacionesPage: React.FC = () => {
         </div>
 
         {/* Row 3: Condition 2 */}
-        <div className="border p-4 bg-[#cae9f5] font-bold text-center">
+        <div className={`border p-4 ${isDarkMode ? "bg-gray-700" : "bg-[#cae9f5]"} text-center`}>
           2
         </div>
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className="border p-4">
           <p>
             Los lugares geométricos no se intersecan (no se cortan). Entonces se
             dice que el sistema no tiene solución y en el caso en que el sistema
@@ -80,10 +83,10 @@ const SistemasEcuacionesPage: React.FC = () => {
         </div>
 
         {/* Row 4: Condition 3 */}
-        <div className="border p-4 bg-[#cae9f5] font-bold text-center">
+        <div className={`border p-4 ${isDarkMode ? "bg-gray-700" : "bg-[#cae9f5]"} text-center`}>
           3
         </div>
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className="border p-4">
           <p>
             Es un sólo lugar geométrico (una sola gráfica). En este caso se dice
             que el sistema es equivalente o dependiente.
@@ -126,7 +129,7 @@ const SistemasEcuacionesPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -164,7 +167,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       /> */}
-      <InfoPopupSistemasEcuaciones isOpen={isPopupOpen} onClose={handleClosePopup} />
+      <InfoPopupSistemasEcuaciones isOpen={isPopupOpen} isDarkMode={isDarkMode} onClose={handleClosePopup} />
     </>
   );
 };

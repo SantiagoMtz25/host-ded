@@ -3,6 +3,13 @@
 
 import { useEffect, useState } from "react";
 
+/**
+ * If a user for some reason navigates to a route that does not exist, 
+ * this component will be displayed. And redirect in 5 seconds to the home page.
+ * 
+ * @returns Not found route component which displays a 404 page.
+ */
+
 const NotFound = () => {
   const [backCounter, setBackCounter] = useState<number>(5);
 

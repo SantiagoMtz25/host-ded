@@ -1,30 +1,33 @@
 import React from "react";
 import Image from "next/image";
 import xmark from "../../../../../public/icons/xmark.svg";
+import xmarkwhite from "../../../../../public/icons/xmarkwhite.svg";
 
 type FraccionMixtaPopupProps = {
   isOpen: boolean;
+  isDarkMode: boolean;
   onClose: () => void;
 };
 
 const FraccionMixtaPopup: React.FC<FraccionMixtaPopupProps> = ({
   isOpen,
+  isDarkMode,
   onClose,
 }) => {
   if (!isOpen) return null;
 
   return (
     <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white p-6 rounded-2xl shadow-md max-w-md w-full mx-3">
+      <div className={`${isDarkMode ? "bg-gray-800 text-white" : "bg-white text-gray-600"} p-6 rounded-2xl shadow-md max-w-md w-full mx-3`}>
         <button
           onClick={onClose}
           className="text-gray-500 hover:text-gray-700 float-right"
         >
-          <Image src={xmark} alt="close" width={24} height={24} />
+          <Image src={isDarkMode ? xmarkwhite : xmark} alt="close" width={24} height={24} />
         </button>
         <h2 className="mt-9 text-xl font-bold mb-4">Fracción Mixta</h2>
         <div className="max-h-96 overflow-y-auto pr-2">
-          <p className="text-gray-600 mb-4">
+          <p className="mb-4">
             Es aquella que consta de{" "}
             <span className="font-bold">
               una parte entera y otra parte fraccionaria
@@ -46,7 +49,7 @@ const FraccionMixtaPopup: React.FC<FraccionMixtaPopupProps> = ({
               height={40}
             />
           </div>
-          <p className="text-gray-600 mb-4">
+          <p className="mb-4">
             Una fracción mixta puede convertirse a fracción impropia mediante el
             siguiente algoritmo:
           </p>
@@ -58,7 +61,7 @@ const FraccionMixtaPopup: React.FC<FraccionMixtaPopupProps> = ({
               height={40}
             />
           </div>
-          <p className="text-gray-600 mb-4">Ejemplo:</p>
+          <p className="mb-4">Ejemplo:</p>
           <div className="flex justify-center mb-4">
             <Image
               src="/images/3_2_5_mini.gif" // Placeholder for example image
@@ -67,7 +70,7 @@ const FraccionMixtaPopup: React.FC<FraccionMixtaPopupProps> = ({
               height={30}
             />
           </div>
-          <p className="text-gray-600 mb-4">
+          <p className="mb-4">
             Denominador = 5 <br />
             Entero = 3 <br />
             Numerador = 2
@@ -80,11 +83,11 @@ const FraccionMixtaPopup: React.FC<FraccionMixtaPopupProps> = ({
               height={40}
             />
           </div>
-          <p className="text-gray-600 mb-4">
+          <p className="mb-4">
             Fracción impropia porque{" "}
             <span className="font-bold">17 {">"} 5</span>
           </p>
-          <p className="text-gray-600 mb-4 flex flex-row">
+          <p className="mb-4 flex flex-row">
             Convertir la fracción impropia {" "}
             <Image
               src="/images/227_51.gif" // Placeholder for improper fraction image
@@ -103,7 +106,7 @@ const FraccionMixtaPopup: React.FC<FraccionMixtaPopupProps> = ({
               height={40}
             />
           </div>
-          <p className="text-gray-600 mb-4">La fracción mixta es:</p>
+          <p className="mb-4">La fracción mixta es:</p>
           <div className="flex justify-center">
             <Image
               src="/images/4_23.gif" // Placeholder for final mixed fraction image

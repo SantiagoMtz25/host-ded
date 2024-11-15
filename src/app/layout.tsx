@@ -18,6 +18,14 @@ export const metadata: Metadata = {
   description: "Laboratorio de Prácticas para el desarrollo de habilidades cognitivas, matemáticas y razonamiento verbal",
 };
 
+/**
+ *
+ * @param param0 Takes a component as a child and returns the 
+ * layout for the entire application. Which in this case is the 
+ * main page component. 
+ * @returns Root layout component which wraps the entire website.
+ */
+
 export default function RootLayout({
   children,
 }: Readonly<{

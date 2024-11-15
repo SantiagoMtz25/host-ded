@@ -4,9 +4,12 @@ import { usePathname } from "next/navigation";
 import areasPlanas from "./areasplanas.json";
 import InfoPopupAreasPlanas from './InfoMathPopup/AreasPlanasPopup';
 import { useState } from "react";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const Probabilidad1Page: React.FC = () => {
   const pathname = usePathname();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleQuestion, exampleOptions, answer, imageURL } =
     areasPlanas;
@@ -61,24 +64,24 @@ const Probabilidad1Page: React.FC = () => {
         Se presentan algunas figuras planas y sus fórmulas correspondientes para
         la determinación de su área y perímetro.
       </p>
-      <div className="grid grid-cols-2 gap-4 p-4 bg-gray-100 mt-4">
+      <div className={`grid grid-cols-2 gap-4 p-4 ${isDarkMode ? "bg-gray-800" : "bg-gray-100"} mt-4`}>
         {/* Row 1: Headers */}
-        <div className="bg-[#afdceb] font-bold p-2 text-center">
+        <div className={`${isDarkMode ? "bg-gray-700" : "bg-[#afdceb]"} font-bold p-2`}>
           Figura
         </div>
-        <div className="bg-[#afdceb] font-bold p-2 text-center">
+        <div className={`${isDarkMode ? "bg-gray-700" : "bg-[#afdceb]"} font-bold p-2`}>
           Fórmulas
         </div>
 
         {/* Row 2: Square */}
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className={`border p-4 ${isDarkMode ? "bg-gray-700" : "bg-[#cae9f5]"}`}>
           <p>Cuadrado de lado L</p>
           <div className="w-16">{renderImage(imageURL[0])}</div>
           <p>
             <strong>Lado</strong> = L
           </p>
         </div>
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className={`border p-4 `}>
           <p>
             <strong>Área</strong> = (L)(L) = L<sup>2</sup>
           </p>
@@ -88,11 +91,11 @@ const Probabilidad1Page: React.FC = () => {
         </div>
 
         {/* Row 3: Rectangle */}
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className={`border p-4 ${isDarkMode ? "bg-gray-700" : "bg-[#cae9f5]"}`}>
           <p>Rectángulo</p>
           <div className="w-48">{renderImage(imageURL[1])}</div>
         </div>
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className={`border p-4`}>
           <p>
             <strong>Área</strong> = (b)(a) = ba
           </p>
@@ -102,7 +105,7 @@ const Probabilidad1Page: React.FC = () => {
         </div>
 
         {/* Row 4: Circle */}
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className={`border p-4 ${isDarkMode ? "bg-gray-700" : "bg-[#cae9f5]"}`}>
           <p>Círculo</p>
           <div className="w-16">{renderImage(imageURL[2])}</div>
           <p>
@@ -112,7 +115,7 @@ const Probabilidad1Page: React.FC = () => {
             <strong>Diámetro</strong> = d
           </p>
         </div>
-        <div className="border p-4 bg-[#cae9f5]">
+        <div className={`border p-4`}>
           <p>
             <strong>Área</strong> = πr<sup>2</sup>
           </p>
@@ -135,7 +138,7 @@ const Probabilidad1Page: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -176,6 +179,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
 
       <InfoPopupAreasPlanas
         isOpen={isPopupOpen}
+        isDarkMode={isDarkMode}
         onClose={handleClosePopup}
       />
     </>

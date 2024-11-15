@@ -5,6 +5,7 @@ import React from "react";
 import MainSubjects from "../components/MainSubjects";
 import SubjectCard from "../components/SubjectCard";
 import mathematics from "./mathematics.json";
+import { useDarkMode } from "../hooks/useDarkMode";
 
 interface MathematicsContentProps {
   selectedTopicIndex: number;
@@ -15,12 +16,15 @@ const MathematicsContent: React.FC<MathematicsContentProps> = ({
 }) => {
   const selectedTopic = mathematics.topics[selectedTopicIndex];
 
+  const [isDarkMode] = useDarkMode();
+
   return (
     <div className="flex flex-col w-full lg:max-w-[1120px] px-2">
       <MainSubjects
         title={mathematics.title}
         description={mathematics.description}
         points={mathematics.points}
+        isDarkMode={isDarkMode}
       >
         {selectedTopic ? (
           selectedTopic.points.map((point, pointIndex) => (
@@ -28,6 +32,7 @@ const MathematicsContent: React.FC<MathematicsContentProps> = ({
               key={pointIndex}
               title={point.title}
               description={point.description}
+              isDarkMode={isDarkMode}
               colorToRender={mathematics.color}
             />
           ))

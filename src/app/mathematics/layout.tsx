@@ -5,9 +5,12 @@ import Footer from "../components/Footer";
 import NavBar from "../components/NavBar";
 import MathSideBar from "../components/MathSideBar";
 import subjects from "./mathematics.json";
+import { useDarkMode } from "../hooks/useDarkMode";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [selectedTopicIndex, setSelectedTopicIndex] = useState(0);
+
+  const [isDarkMode] = useDarkMode();
 
   // Handler to update the selected topic index
   const handleSelectTopic = (index: number) => {
@@ -23,6 +26,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           <MathSideBar
             elements={subjects.topics}
             selectedTopicIndex={selectedTopicIndex}
+            isDarkMode={isDarkMode}
             onSelect={handleSelectTopic}
           />
           {/* Render the page's children */}

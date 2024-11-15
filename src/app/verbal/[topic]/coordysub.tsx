@@ -5,10 +5,13 @@ import coordYSubordinantes from "./coordinantesosubordinantes.json";
 import InfoPopupCoordSub from "./VerbalPopups/CoordSubPopup";
 import { useState } from "react";
 import Link from "next/link";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const CoordYSub: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
+
+  const [isDarkMode] = useDarkMode();
 
   const { topic, exampleOptions } =
     coordYSubordinantes;
@@ -165,7 +168,7 @@ const CoordYSub: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105 flex-grow"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105 flex-grow`}
           >
             <p>{option}</p>
           </div>
@@ -207,6 +210,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       /> */}
       <InfoPopupCoordSub
         isOpen={isPopupOpen}
+        isDarkMode={isDarkMode}
         onClose={handleClosePopup}
       />
     </>

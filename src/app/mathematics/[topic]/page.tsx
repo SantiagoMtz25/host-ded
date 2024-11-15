@@ -3,32 +3,34 @@
 // Page.tsx
 import React from 'react';
 import { usePathname } from "next/navigation";
-import ExpresionesAlgebraicasComponent from "./expresionesalgebraicas";
-import EcuacionesLinealesComponent from "./ecuacioneslineales";
-import EvaluacionFuncionesComponent from "./evaluacionfunciones";
-import FuncDosVariablesComponent from "./funcdosvariables";
-import ExpresionAlgebraicaComponent from "./evalexpresionalgebraica";
-import SistemasEcuacionesComponent from "./sistemasecuaciones";
-import CuadradoFraccionComponent from "./cuadradofraccion";
-import FraccionesComponent from "./fracciones";
-import MaximoComunDivisorComponent from "./maximocomundivisor";
-import OperacionesFraccionesComponent from "./operacionesfracciones";
-import AnguloPerigonalPerigonoComponent from "./perigonalperigono";
-import DatosGraficadosComponent from "./datosgraficados";
-import Probabilidad1Component from "./probabilidad1";
-import Probabilidad2Component from "./probabilidad2";
-import AngulosComplementariosSuplementariosComponent from "./suplementarioscomplementarios";
-import AreasFigurasPlanasComponent from "./areasplanas";
-import DistanciaDosPuntosComponent from "./dospuntos";
-import AreasYComparacionesComponent from "./areasycomparaciones";
-import PerimetroComponent from "./perimetro";
-import PerimetroAreaAnguloComponent from "./paa";
-import PlanoCartesianoPage from "./planocartesiano";
-import SemejanzaCongruenciaComponent from "./semejanzacongruencia";
-import TriangulosPage from "./triangulos";
-import VolumenesPage from "./volumenes";
+import dynamic from 'next/dynamic';
 
-const topicsMap: { [key: string]: React.FC } = {
+const ExpresionesAlgebraicasComponent = dynamic(() => import('./expresionesalgebraicas'));
+const EcuacionesLinealesComponent = dynamic(() => import('./ecuacioneslineales'));
+const EvaluacionFuncionesComponent = dynamic(() => import('./evaluacionfunciones'));
+const FuncDosVariablesComponent = dynamic(() => import('./funcdosvariables'));
+const ExpresionAlgebraicaComponent = dynamic(() => import('./evalexpresionalgebraica'));
+const SistemasEcuacionesComponent = dynamic(() => import('./sistemasecuaciones'));
+const CuadradoFraccionComponent = dynamic(() => import('./cuadradofraccion'));
+const FraccionesComponent = dynamic(() => import('./fracciones'));
+const MaximoComunDivisorComponent = dynamic(() => import('./maximocomundivisor'));
+const OperacionesFraccionesComponent = dynamic(() => import('./operacionesfracciones'));
+const AnguloPerigonalPerigonoComponent = dynamic(() => import('./perigonalperigono'));
+const DatosGraficadosComponent = dynamic(() => import('./datosgraficados'));
+const Probabilidad1Component = dynamic(() => import('./probabilidad1'));
+const Probabilidad2Component = dynamic(() => import('./probabilidad2'));
+const AngulosComplementariosSuplementariosComponent = dynamic(() => import('./suplementarioscomplementarios'));
+const AreasFigurasPlanasComponent = dynamic(() => import('./areasplanas'));
+const DistanciaDosPuntosComponent = dynamic(() => import('./dospuntos'));
+const AreasYComparacionesComponent = dynamic(() => import('./areasycomparaciones'));
+const PerimetroComponent = dynamic(() => import('./perimetro'));
+const PerimetroAreaAnguloComponent = dynamic(() => import('./paa'));
+const PlanoCartesianoPage = dynamic(() => import('./planocartesiano'));
+const SemejanzaCongruenciaComponent = dynamic(() => import('./semejanzacongruencia'));
+const TriangulosPage = dynamic(() => import('./triangulos'));
+const VolumenesPage = dynamic(() => import('./volumenes'));
+
+const topicsMap: { [key: string]: React.ComponentType } = {
   'construccion-de-expresiones-algebraicas': ExpresionesAlgebraicasComponent,
   'ecuaciones-lineales': EcuacionesLinealesComponent,
   'evaluacion-de-funciones': EvaluacionFuncionesComponent,

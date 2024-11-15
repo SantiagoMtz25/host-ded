@@ -5,10 +5,13 @@ import transformacioneslogicas from "./transformacioneslogicas.json";
 import InfoPopupTransformacionesLogicas from "./CognitivePopup/TransformacionesLogicasPopup";
 import { useState } from "react";
 import Link from "next/link";
+import { useDarkMode } from "@/app/hooks/useDarkMode";
 
 const TransformacionesLogicasPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.split("/").pop();
+
+  const [isDarkMode] = useDarkMode();
 
   const {
     topic,
@@ -68,7 +71,7 @@ const TransformacionesLogicasPage: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className="bg-gray-200 p-4 rounded-2xl mt-4 transition-all hover:scale-105"
+            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} w-80 p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -110,6 +113,7 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
       /> */}
       <InfoPopupTransformacionesLogicas
         isOpen={isPopupOpen}
+        isDarkMode={isDarkMode}
         onClose={handleClosePopup}
       />
     </>
