@@ -1,3 +1,10 @@
+
+/**
+ * Responsive footer component to display authors and privacy policies.
+ * Plus a link to the credits page.
+ * 
+ * @returns Footer component
+ */
 const FooterComponent: React.FC = () => {
   return (
     <>

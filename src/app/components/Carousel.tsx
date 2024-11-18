@@ -17,6 +17,15 @@ interface CarouselProps {
   description: string;
 }
 
+/**
+ * Carousel automated image slider, with next and previous buttons, 
+ * used to display the title of the page, a brief description and 
+ * multiple background images to make it interactive. 
+ *  
+ * @param title 
+ * @param description 
+ * @returns Carousel component
+ */
 const Carousel = ({ title, description }: CarouselProps) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 

@@ -6,6 +6,13 @@ import GoBackBtn from "../components/GoBackBtn";
 import Image from "next/image";
 import { useDarkMode } from "../hooks/useDarkMode";
 
+/**
+ * Provides the credits page for the CVA, the people responsible for the
+ * production of the information and the resources used in the platform.
+ * And the programmer responsible for the digital transfer and update.
+ * 
+ * @returns Credits page inspired from the actual CVA credits page
+ */
 const Page = () => {
   const [isDarkMode] = useDarkMode();
 

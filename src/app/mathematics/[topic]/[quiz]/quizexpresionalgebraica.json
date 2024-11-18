@@ -1,215 +1,105 @@
 {
-  "title": "Evaluación de Expresiones Matemáticas",
-  "description": "Selecciona el inciso que contiene el valor correcto de la expresión dada con los valores proporcionados.",
+  "title": "Expresiones Algebraicas",
+  "description": "Selecciona el inciso que contiene la representación matemática correcta para cada enunciado.",
   "questions": [
     {
-      "question": "El inciso que tiene el valor de la expresión para a = -3; b = 6 es:",
+      "question": "La altura de un rectángulo es el triple de su base, ¿cómo se representa matemáticamente este enunciado?",
       "options": [
-        "2",
-        "-2",
-        "1",
-        "-1"
-      ],
-      "answer": 0,
-      "explanation": "La evaluación da un resultado de 2."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión para w = 4; y = -6 es:",
-      "options": [
-        "-7",
-        "7",
-        "-8",
-        "8"
+        "x + 3x",
+        "x ( 3x )",
+        "4x",
+        "2 ( x ) + 2 ( 3x )"
       ],
       "answer": 3,
-      "explanation": "La evaluación da un resultado de 8."
+      "explanation": "La expresión correcta es 2 ( x ) + 2 ( 3x )."
     },
     {
-      "question": "El inciso que tiene el valor de la expresión para x = 5; y = 3 es:",
+      "question": "La base de un triángulo es el doble de su altura, ¿cómo se expresa la medida de su área?",
       "options": [
-        "4",
-        "3",
-        "-4",
-        "-3"
-      ],
-      "answer": 1,
-      "explanation": "La evaluación da un resultado de 3."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión para w = -2; z = -2 es:",
-      "options": [
-        "-17",
-        "17",
-        "-20",
-        "20"
+        "2x(x) / 2",
+        "3x / 2",
+        "1/2 * (x)(x)",
+        "3/2 * (x)"
       ],
       "answer": 0,
-      "explanation": "La evaluación da un resultado de -17."
+      "explanation": "(2x * x)/2"
     },
     {
-      "question": "El inciso que tiene el valor de la expresión para m = -2; n = 2 es:",
+      "question": "La edad de Rosy es el triple de la de Luis, ¿cómo se expresa la suma de sus edades?",
       "options": [
-        "4",
-        "3",
-        "-4",
-        "-3"
+        "3x^2",
+        "x(3x)",
+        "1/3 * ( x )( x )",
+        "x + 3x"
+      ],
+      "answer": 3,
+      "explanation": "La suma de las edades es x + 3x."
+    },
+    {
+      "question": "Pepe gana el doble que Raúl, ¿cómo se expresa la diferencia entre sus salarios?",
+      "options": [
+        "2x + x",
+        "3x",
+        "2x - x",
+        "2x ( x )"
       ],
       "answer": 2,
-      "explanation": "La evaluación da un resultado de -4."
+      "explanation": "La diferencia entre los salarios es 2x - x."
     },
     {
-      "question": "El inciso que tiene el valor de la expresión para d = 3; f = 4 es:",
+      "question": "Gaby tiene el triple del promedio de Lulú y Elena tiene el doble del promedio de Lulú, ¿cómo se expresa el promedio de las tres?",
       "options": [
-        "1",
-        "0",
-        "-1",
-        "3"
+        "(x -3x + 2x) / 3",	
+        "(x + 3x + 2x) / 3",
+        "(x + 3x - 2x) / 3",
+        "(x * 3x * 2x) / 3"
       ],
       "answer": 1,
-      "explanation": "La evaluación da un resultado de 0."
+      "explanation": "(x + 3x + 2x) / 3"
     },
     {
-      "question": "El inciso que tiene el valor de la expresión para a = 6; b = 1 es:",
+      "question": "Si los ahorros de Mimí son cuatro veces los ahorros de Rubén menos 200 pesos, el inciso que tiene la diferencia entre los ahorros de ambos es:",
       "options": [
-        "-1",
-        "-3",
-        "2",
-        "1"
+        "( 4x + 200 ) - x",
+        "5x + 200",
+        "3x2 - 200",
+        "( 4x - 200 ) - x"
       ],
       "answer": 3,
-      "explanation": "La evaluación da un resultado de 1."
+      "explanation": "La diferencia es ( 4x - 200 ) - x."
     },
     {
-      "question": "El inciso que tiene el valor de la expresión para m = 2; n = 7 es:",
+      "question": "Si el número de horas trabajadas por Lorena es tres veces el número de horas trabajadas por Sergio menos 3 horas, el inciso que representa la suma de las horas trabajadas por los dos es:",
       "options": [
-        "2",
-        "1",
-        "-2",
-        "-1"
+        "x + 3 ( x - 3 )",
+        "x ( 3x - 3 )",
+        "x + ( 3x - 3 )",
+        "x - x/3"
       ],
       "answer": 2,
-      "explanation": "La evaluación da un resultado de -2."
+      "explanation": "La suma de las horas trabajadas es x + ( 3x - 3 )."
     },
     {
-      "question": "El inciso que tiene el valor de la expresión para k = 2; h = 5 es:",
+      "question": "Si a la edad de Elena se le suman 5 años, se tiene la edad de Carlos, el inciso que representa la suma de las dos edades es:",
       "options": [
-        "3",
-        "-1",
-        "-3",
-        "1"
-      ],
-      "answer": 1,
-      "explanation": "La evaluación da un resultado de -1."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión x⁴ + y³ para x = -2; y = -2 es:",
-      "options": [
-        "24",
-        "32",
-        "-8",
-        "8"
-      ],
-      "answer": 3,
-      "explanation": "La evaluación da un resultado de 8."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión m⁵ - n⁴ para m = 2; n = 3 es:",
-      "options": [
-        "-49",
-        "49",
-        "5",
-        "-5"
+        "( x + 5 ) + x",
+        "x + 5x",
+        "x + ( x - 5 )",
+        "x ( x + 5 )"
       ],
       "answer": 0,
-      "explanation": "La evaluación da un resultado de -49."
+      "explanation": "La suma de las edades es ( x + 5 ) + x."
     },
     {
-      "question": "El inciso que tiene el valor de la expresión w² + z³ para w = 6; z = -4 es:",
+      "question": "El número de kilómetros viajados por Caty en auto equivalen a la tercera parte del número de kilómetros viajados por Rolando. El inciso que representa la suma del número de kilómetros viajados por ambos es:",
       "options": [
-        "0",
-        "24",
-        "-28",
-        "28"
-      ],
-      "answer": 2,
-      "explanation": "La evaluación da un resultado de -28."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión a³ - b² para a = 5; b = -7 es:",
-      "options": [
-        "-76",
-        "76",
-        "174",
-        "-174"
+        "x(x/3)",
+        "(x/3) + x",
+        "3x ( x )",
+        "x - x/3"
       ],
       "answer": 1,
-      "explanation": "La evaluación da un resultado de 76."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión h⁴ + k² para h = 2; k = -2 es:",
-      "options": [
-        "12",
-        "-12",
-        "20",
-        "-20"
-      ],
-      "answer": 2,
-      "explanation": "La evaluación da un resultado de 20."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión r³ - p⁴ para r = -2; p = -1 es:",
-      "options": [
-        "-9",
-        "9",
-        "7",
-        "-7"
-      ],
-      "answer": 0,
-      "explanation": "La evaluación da un resultado de -9."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión a³ - b² para a = 0; b = -5 es:",
-      "options": [
-        "26",
-        "-26",
-        "25",
-        "-25"
-      ],
-      "answer": 3,
-      "explanation": "La evaluación da un resultado de -25."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión s⁴ - t⁵ para s = 2; t = 1 es:",
-      "options": [
-        "15",
-        "-15",
-        "17",
-        "-17"
-      ],
-      "answer": 0,
-      "explanation": "La evaluación da un resultado de 15."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión f⁵ - g³ para f = -2; g = -2 es:",
-      "options": [
-        "-40",
-        "40",
-        "24",
-        "-24"
-      ],
-      "answer": 3,
-      "explanation": "La evaluación da un resultado de -24."
-    },
-    {
-      "question": "El inciso que tiene el valor de la expresión k⁶ + h para k = -1; h = -5 es:",
-      "options": [
-        "4",
-        "-4",
-        "6",
-        "-6"
-      ],
-      "answer": 1,
-      "explanation": "La evaluación da un resultado de -4."
+      "explanation": "La suma de los kilómetros es (x/3) + x."
     }
   ]
 }

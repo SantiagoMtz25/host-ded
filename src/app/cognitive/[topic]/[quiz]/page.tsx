@@ -41,7 +41,13 @@ const QuizPage: React.FC = () => {
 
   return (
     <>
-      <QuizComponent title={quizTitle} description={defaultDescription} questions={jsonToPass.questions} />
+      <QuizComponent 
+        title={quizTitle} 
+        description={defaultDescription} 
+        questions={jsonToPass.questions} 
+        images={jsonToPass.images}
+        responseImages={jsonToPass.responseImages}
+      />
     </>
   );  
 };

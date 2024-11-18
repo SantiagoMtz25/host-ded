@@ -1,5 +1,11 @@
 import type { Config } from "tailwindcss";
 
+/**
+ * For the screens the default screen values that tailwindcss uses 
+ * were modified, be awere that changing them will affect the layout
+ * of the website.
+ */
+
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",

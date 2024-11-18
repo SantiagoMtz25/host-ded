@@ -14,6 +14,22 @@ type PopupProps = {
   onClose: () => void;
 };
 
+/**
+ * Custom popup component to avoid importing external packages and
+ * to display the anwers to the example questions shown in the topics, 
+ * some include images and a brief description, but all have a title 
+ * and an answer.
+ * 
+ * @param title
+ * @param answer
+ * @param description
+ * @param images
+ * @param width
+ * @param isDarkMode
+ * @param isOpen
+ * @param onClose
+ * @returns Custom Popup component
+ */
 const Popup: React.FC<PopupProps> = ({
   title,
   answer,

@@ -2,17 +2,18 @@
 
 import { usePathname } from "next/navigation";
 import probabilidad2 from "./probabilidad2.json";
-import InfoPopupProbabilidad2 from './InfoMathPopup/Probabilidad2Popup';
+import InfoPopupProbabilidad2 from "./InfoMathPopup/Probabilidad2Popup";
 import { useState } from "react";
 import { useDarkMode } from "@/app/hooks/useDarkMode";
+import Link from "next/link";
 
 const Probabilidad1Page: React.FC = () => {
   const pathname = usePathname();
+  const lastPath = pathname.split("/").pop();
 
   const [isDarkMode] = useDarkMode();
 
-  const { topic, exampleQuestion, exampleOptions, imageURL } =
-    probabilidad2;
+  const { topic, exampleQuestion, exampleOptions, imageURL } = probabilidad2;
 
   const backgroundColor = pathname.includes("cognitive")
     ? "bg-[#bde2b9]"
@@ -83,19 +84,23 @@ const Probabilidad1Page: React.FC = () => {
         S = {"{"}R, R, R, R, A, A, A, A, A{"}"}
       </p>
       <p className="mt-4">n = número de eventos en el espacio muestra = 9</p>
-      <p className="mt-4">Para el evento: &quot;Sacar una tarjeta roja&quot;.</p>
+      <p className="mt-4">
+        Para el evento: &quot;Sacar una tarjeta roja&quot;.
+      </p>
       <p className="mt-4">
         E = {"{"} R, R, R, R {"}"} &nbsp; → &nbsp; r = 4
       </p>
       <p className="mt-4">
-        Si el evento es: &quot;No sacar una tarjeta roja&quot;. Esto significa que se
-        busca el complemento (E&apos;) del evento E, que consiste en:
+        Si el evento es: &quot;No sacar una tarjeta roja&quot;. Esto significa
+        que se busca el complemento (E&apos;) del evento E, que consiste en:
       </p>
       <p className="mt-4">
         E &apos; = {"{"} A, A, A, A, A {"}"} &nbsp; → &nbsp; t = 5, que puede
         expresarse diciendo:
       </p>
-      <p className="mt-4 justify-self-center">&quot;x no es una tarjeta roja&quot;</p>
+      <p className="mt-4 justify-self-center">
+        &quot;x no es una tarjeta roja&quot;
+      </p>
       {renderImage(imageURL[2])}
 
       <p className="mt-4 font-bold text-green-500">Ejemplo</p>
@@ -112,7 +117,9 @@ const Probabilidad1Page: React.FC = () => {
         {exampleOptions.map((option, index) => (
           <div
             key={index}
-            className={`${isDarkMode ? "bg-gray-800" : "bg-gray-200"} p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
+            className={`${
+              isDarkMode ? "bg-gray-800" : "bg-gray-200"
+            } p-4 rounded-2xl mt-4 transition-all hover:scale-105`}
           >
             <p>{option}</p>
           </div>
@@ -124,20 +131,20 @@ const Probabilidad1Page: React.FC = () => {
 ${backgroundColor2}
 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
 active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
-          onClick={
-            handleSeeAnswer
-          }
+          onClick={handleSeeAnswer}
         >
           Ver Respuesta
         </button>
-        <button
-          className={`w-40 min-h-14 cursor-pointer transition-all ${backgroundColor} text-black px-6 py-2 rounded-2xl
+        <Link href={`${pathname}/quiz${lastPath}`}>
+          <button
+            className={`w-40 min-h-14 cursor-pointer transition-all ${backgroundColor} text-black px-6 py-2 rounded-2xl
 ${backgroundColor2}
 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
 active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
-        >
-          Tomar Quiz
-        </button>
+          >
+            Tomar Quiz
+          </button>
+        </Link>
       </div>
       <p className="mt-4 text-slate-600">
         Nota: Podrás retomar el quiz cuantes veces lo desees
@@ -150,7 +157,11 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         isOpen={isPopupOpen}
         onClose={handleClosePopup}
       /> */}
-      <InfoPopupProbabilidad2 isOpen={isPopupOpen} isDarkMode={isDarkMode} onClose={handleClosePopup} />
+      <InfoPopupProbabilidad2
+        isOpen={isPopupOpen}
+        isDarkMode={isDarkMode}
+        onClose={handleClosePopup}
+      />
     </>
   );
 };

@@ -18,7 +18,8 @@ export interface QuizComponentProps {
   description: string;
   questions: QuestionProps[];
   questionDescription?: string;
-  image?: string;
+  images?: string[];
+  responseImages?: string[];
 }
 
 const QuizComponent: React.FC<QuizComponentProps> = ({
@@ -26,6 +27,8 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
   description,
   questions,
   questionDescription,
+  images,
+  responseImages,
 }) => {
   const pathname = usePathname();
 
@@ -159,6 +162,17 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
                       <strong>Explicación:</strong> {item.explanation}
                     </p>
                   )}
+                  <div className="flex justify-center">
+                    {responseImages && (
+                      <Image
+                        src={responseImages[index]}
+                        alt="response-image"
+                        width={350}
+                        height={350}
+                        className="rounded-2xl"
+                      />
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>
@@ -178,6 +192,15 @@ const QuizComponent: React.FC<QuizComponentProps> = ({
             <p className="font-semibold text-lg">
               Pregunta {currentQuestion + 1} de {questions.length}
             </p>
+            {images && (
+              <Image
+                src={images[currentQuestion]}
+                alt="quiz-image"
+                width={400}
+                height={400}
+                className="rounded-2xl"
+              />
+            )}
             {questionDescription && (
               <p className="font-semibold text-lg">{questionDescription}</p>
             )}

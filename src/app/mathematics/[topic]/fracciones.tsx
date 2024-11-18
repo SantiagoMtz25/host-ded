@@ -15,9 +15,11 @@ import InfoPopupSumaResta from "./MathPopup/SumaRestaPopup";
 import InfoPopupMCD from "./MathPopup/MCDPopup";
 import { useState } from "react";
 import { useDarkMode } from "@/app/hooks/useDarkMode";
+import Link from "next/link";
 
 const FraccionesPage: React.FC = () => {
   const pathname = usePathname();
+  const lastPath = pathname.split("/").pop();
 
   const [isDarkMode] = useDarkMode();
 
@@ -84,11 +86,23 @@ const FraccionesPage: React.FC = () => {
         mecanizar algunos procedimientos para el desarrollo de las operaciones
         con fracciones.
       </p>
-      <div className={`grid grid-cols-2 gap-4 p-4 ${isDarkMode ? "bg-gray-800" : "bg-gray-100"} mt-4`}>
-        <div className={`${isDarkMode ? "bg-gray-700" : "bg-[#afdceb]"} font-bold p-2 text-center`}>
+      <div
+        className={`grid grid-cols-2 gap-4 p-4 ${
+          isDarkMode ? "bg-gray-800" : "bg-gray-100"
+        } mt-4`}
+      >
+        <div
+          className={`${
+            isDarkMode ? "bg-gray-700" : "bg-[#afdceb]"
+          } font-bold p-2 text-center`}
+        >
           Conceptos
         </div>
-        <div className={`${isDarkMode ? "bg-gray-700" : "bg-[#afdceb]"} font-bold p-2 text-center`}>
+        <div
+          className={`${
+            isDarkMode ? "bg-gray-700" : "bg-[#afdceb]"
+          } font-bold p-2 text-center`}
+        >
           Operaciones fundamentales
         </div>
 
@@ -178,14 +192,16 @@ active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
         >
           Ver Respuesta
         </button>
-        <button
-          className={`w-40 min-h-14 cursor-pointer transition-all ${backgroundColor} text-black px-6 py-2 rounded-2xl
+        <Link href={`${pathname}/quiz${lastPath}`}>
+          <button
+            className={`w-40 min-h-14 cursor-pointer transition-all ${backgroundColor} text-black px-6 py-2 rounded-2xl
 ${backgroundColor2}
 border-b-[4px] hover:brightness-110 hover:-translate-y-[1px] hover:border-b-[6px]
 active:border-b-[2px] active:brightness-90 active:translate-y-[2px]`}
-        >
-          Tomar Quiz
-        </button>
+          >
+            Tomar Quiz
+          </button>
+        </Link>
       </div>
       <p className="mt-4 text-slate-600">
         Nota: Podrás retomar el quiz cuantes veces lo desees

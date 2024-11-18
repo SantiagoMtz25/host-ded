@@ -1,3 +1,7 @@
+/*
+  Carousel animation showed on the main page
+*/
+
 @keyframes tonext {
   75% {
     left: 0;

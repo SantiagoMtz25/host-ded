@@ -102,7 +102,7 @@
       "explanation": "La solución de la ecuación es x = 0."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: (1/2)y - 5 = 3 es:",
       "options": [
         "16",
         "-16",
@@ -113,7 +113,7 @@
       "explanation": "La solución de la ecuación es 16."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: (3/2)x - 9 = 0 es:",
       "options": [
         "-6",
         "6",
@@ -124,7 +124,7 @@
       "explanation": "La solución de la ecuación es 6."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: (1/5)w - 4 = w + 4 es:",
       "options": [
         "36",
         "-36",
@@ -146,7 +146,7 @@
       "explanation": "La solución de la ecuación es x = -4."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: (4/5)y + 2 = -2 es:",
       "options": [
         "5",
         "-5",
@@ -157,7 +157,7 @@
       "explanation": "La solución de la ecuación es -5."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: (2/x) - 5 = -3 es:",
       "options": [
         "-2",
         "2",
@@ -168,7 +168,7 @@
       "explanation": "La solución de la ecuación es 1."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: -1 - 7/2x = 6 es:",
       "options": [
         "",
         "",
@@ -179,7 +179,7 @@
       "explanation": "Solución correcta."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: (5/x) + 3 = 4 es:",
       "options": [
         "2",
         "-2",
@@ -190,7 +190,7 @@
       "explanation": "La solución de la ecuación es 5."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: 3 - (4/x) = -1 es:",
       "options": [
         "4",
         "-4",
@@ -201,7 +201,7 @@
       "explanation": "La solución de la ecuación es 1."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: (3/x) - 2 = 1 es:",
       "options": [
         "3",
         "-3",
@@ -212,7 +212,7 @@
       "explanation": "La solución de la ecuación es 1."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: (4/x) + 2 = 3 es:",
       "options": [
         "3",
         "-3",
@@ -223,7 +223,7 @@
       "explanation": "La solución de la ecuación es 4."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: (7/x) - 2 = 5 es:",
       "options": [
         "7",
         "-7",
@@ -234,7 +234,7 @@
       "explanation": "La solución de la ecuación es 1."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: (9/x) - 3 = -6 es:",
       "options": [
         "1",
         "-1",
@@ -245,7 +245,7 @@
       "explanation": "La solución de la ecuación es -3."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: 2 - (8/x) = 4 es:",
       "options": [
         "-2",
         "-4",
@@ -256,7 +256,7 @@
       "explanation": "La solución de la ecuación es -4."
     },
     {
-      "question": "El inciso que tiene la solución de la ecuación es:",
+      "question": "El inciso que tiene la solución de la ecuación: 4 - (10/x) = -1 es:",
       "options": [
         "5",
         "2",

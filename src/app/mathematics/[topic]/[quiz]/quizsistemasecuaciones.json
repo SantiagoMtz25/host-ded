@@ -82,10 +82,10 @@
     {
       "question": "Es el inciso que tiene la respuesta al sistema:\n4x + 7y = -4\n-2x + y = -7",
       "options": [
-        "(a)",
-        "",
-        "",
-        ""
+        "(5/2, -2)",
+        "(-5/2, 2)",
+        "(-2, 5/2)",
+        "(2, 5/2)"
       ],
       "answer": 0,
       "explanation": "Solución correcta."

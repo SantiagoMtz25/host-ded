@@ -102,5 +102,27 @@
       "answer": 0,
       "explanation": "Esta conclusión se infiere lógicamente de lo enunciado en las premisas."
     }
+  ],
+  "images": [
+    "/images/quizes/cognitive/razcondicional/p02_p.gif",
+    "/images/quizes/cognitive/razcondicional/p03_p.gif",
+    "/images/quizes/cognitive/razcondicional/p04_p.gif",
+    "/images/quizes/cognitive/razcondicional/p05_p.gif",
+    "/images/quizes/cognitive/razcondicional/p06_p.gif",
+    "/images/quizes/cognitive/razcondicional/p07_p.gif",
+    "/images/quizes/cognitive/razcondicional/p08_p.gif",
+    "/images/quizes/cognitive/razcondicional/p09_p.gif",
+    "/images/quizes/cognitive/razcondicional/p10_p.gif"
+  ],
+  "responseImages": [
+    "/images/quizes/cognitive/razcondicional/p02_s_2.gif",
+    "/images/quizes/cognitive/razcondicional/p03_s_2.gif",
+    "/images/quizes/cognitive/razcondicional/p04_s_2.gif",
+    "/images/quizes/cognitive/razcondicional/p05_s_3.gif",
+    "/images/quizes/cognitive/razcondicional/p06_s_3.gif",
+    "/images/quizes/cognitive/razcondicional/p07_s_1.gif",
+    "/images/quizes/cognitive/razcondicional/p08_s_1.gif",
+    "/images/quizes/cognitive/razcondicional/p09_s_3.gif",
+    "/images/quizes/cognitive/razcondicional/p10_s_1.gif"
   ]
 }
