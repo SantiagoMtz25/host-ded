@@ -21,6 +21,12 @@ import QuizComplementariosSuplementariosJSON from "./quizcomplementariossuplemen
 import QuizAreasPlanasJSON from "./quizareasplanas.json";
 import QuizDistanciaDosPuntosJSON from "./quizdistanciadospuntos.json";
 import QuizAreasComparacionesJSON from "./quizareascomparaciones.json";
+import QuizPerimetroJSON from "./quizperimetro.json";
+import QuizPAAJSON from "./quizpaa.json";
+import QuizPlanoCartesianoJSON from "./quizplanocartesiano.json";
+import QuizSemejanzaCongruenciaJSON from "./quizsemejanzacongruencia.json";
+import QuizTriangulosJSON from "./quiztriangulos.json";
+import QuizVolumenesJSON from "./quizvolumenes.json";
 
 import QuizDatosGraficadosJSON from "./quizdatosgraficados.json";
 import QuizProbabilidad1JSON from "./quizprobabilidad1.json";
@@ -44,6 +50,12 @@ const quizesMap: { [key: string]: QuizComponentProps } = {
   'quizareas-de-figuras-planas': QuizAreasPlanasJSON,
   'quizdistancia-entre-dos-puntos': QuizDistanciaDosPuntosJSON,
   'quizejercicios-de-areas-y-comparaciones': QuizAreasComparacionesJSON,
+  'quizperimetro': QuizPerimetroJSON,
+  'quizperimetros-areas-y-angulos': QuizPAAJSON,
+  'quizplano-cartesiano': QuizPlanoCartesianoJSON,
+  'quizsemejanza-y-congruencia': QuizSemejanzaCongruenciaJSON,
+  'quiztriangulos': QuizTriangulosJSON,
+  'quizvolumenes': QuizVolumenesJSON,
 
   'quizdatos-graficados': QuizDatosGraficadosJSON,
   'quizprobabilidad-1': QuizProbabilidad1JSON,
