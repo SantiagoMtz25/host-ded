@@ -7,6 +7,14 @@ interface GoBackBtnProps {
   color?: string;
 }
 
+/**
+ * @param isDarkMode gets a boolean to render the button in dark mode
+ * or light mode
+ * @returns a button that redirects to the home page when clicked
+ * 
+ * @description despite the current path the button will always 
+ * redirect to the home page.
+ */
 const GoBackBtn: React.FC<GoBackBtnProps> = ({ isDarkMode }) => {
   const pathname = usePathname();
 

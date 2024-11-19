@@ -11,6 +11,15 @@ export interface NavCardProps {
   icon: string;
 }
 
+/**
+ * @param num gets the number of the card
+ * @param title gets the title of the card
+ * @param description gets the description of the card
+ * @param path gets the path to redirect when the button is clicked
+ * @param icon gets the icon of the card
+ * @returns a card component that renders the title, description, and a button to redirect to the path
+ * of the three main subjects of the website.
+ */
 const NavCard: React.FC<NavCardProps> = ({
   num,
   title,

@@ -59,6 +59,10 @@ const topicsMap: { [key: string]: React.ComponentType } = {
   'probabilidad-2': Probabilidad2Component,
 };
 
+/**
+ * @returns the main subject page that will render the specific topic page.
+ * The topic page is dynamically imported based on the last part of the pathname.
+ */
 const Page: React.FC = () => {
   const pathname = usePathname();
   const lastText = pathname.substring(pathname.lastIndexOf("/") + 1);

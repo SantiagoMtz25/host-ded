@@ -9,6 +9,10 @@ interface NavBarProps {
   title?: string;
 }
 
+/**
+ * @returns a navigation bar component that renders the logo of the
+ * website and of the institution.
+ */
 const NavBar: React.FC<NavBarProps> = ({}) => {
   const pathname = usePathname();
   const imageAlign =

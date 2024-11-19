@@ -7,6 +7,15 @@ import MathSideBar from "../components/MathSideBar";
 import subjects from "./mathematics.json";
 import { useDarkMode } from "../hooks/useDarkMode";
 
+/**
+ * This layout varies from the cognitive and verbal layouts in that it
+ * has a function to update the selected topic index. This is because the
+ * mathematics layout has a math sidebar that has not only a list of subjects but 
+ * a list with four main topics with subtopics each.
+ * 
+ * @param children will be the page's content 
+ * @returns a layout with a sidebar, navbar, footer, and the main page content
+ */
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const [selectedTopicIndex, setSelectedTopicIndex] = useState(0);
 

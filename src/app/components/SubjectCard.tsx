@@ -11,6 +11,12 @@ interface SubjectCardProps {
   colorToRender?: string;
 }
 
+/**
+ * @param title gets the title of the subject
+ * @param isDarkMode gets a boolean to render the component in dark mode
+ * @param colorToRender gets the color to render the component
+ * @returns a card component that renders the subject
+ */
 const SubjectCard: React.FC<SubjectCardProps> = ({
   title,
   isDarkMode,

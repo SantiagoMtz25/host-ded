@@ -22,6 +22,15 @@ export interface QuizComponentProps {
   responseImages?: string[];
 }
 
+/**
+ * @param title gets the title of the quiz
+ * @param description gets the description of the quiz
+ * @param questions gets the questions of the quiz
+ * @param questionDescription gets the description of the question
+ * @param images gets the images of the quiz
+ * @param responseImages gets the images of the responses
+ * @returns a reusable component that renders a quiz with questions and answers
+ */
 const QuizComponent: React.FC<QuizComponentProps> = ({
   title,
   description,

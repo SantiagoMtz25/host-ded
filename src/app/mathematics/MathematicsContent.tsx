@@ -11,6 +11,12 @@ interface MathematicsContentProps {
   selectedTopicIndex: number;
 }
 
+/**
+ * 
+ * @param selectedTopicIndex the index of the selected topic 
+ * @returns the main content of the mathematics page with the selected topic, 
+ * obtained from the math sidebar.
+ */
 const MathematicsContent: React.FC<MathematicsContentProps> = ({
   selectedTopicIndex,
 }) => {

@@ -36,6 +36,11 @@ const topicsMap: { [key: string]: React.ComponentType } = {
   'transformaciones-logicas': TransformacionesLogicasComponent
 };
 
+/**
+ * @returns a component with the page corresponding to the topic 
+ * selected by the user. The component is obtained from the last
+ * part of the pathname by mapping it to the corresponding component.
+ */
 const Page: React.FC = () => {
   const pathname = usePathname();
   const lastText = pathname.substring(pathname.lastIndexOf("/") + 1);

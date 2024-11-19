@@ -26,6 +26,12 @@ const quizesMap: { [key: string]: QuizComponentProps } = {
   'quizuso-de-las-preposiciones': QuizUsoDeLasPreposiciones
 };
 
+/**
+ * @returns a component with the quiz page corresponding to 
+ * a specific topic. The json to pass is obtained from the
+ * last part of the pathname by mapping it to the corresponding
+ * json file.
+ */
 const QuizPage: React.FC = () => {
   const pathname = usePathname();
   const lastPath = pathname.substring(pathname.lastIndexOf("/") + 1);

@@ -27,6 +27,13 @@ interface SideBarProps {
   onSelect?: (index: number) => void;
 }
 
+/**
+ * 
+ * @param elements gets the elements to render in the sidebar
+ * @param isDarkMode gets a boolean to render the sidebar in dark mode
+ * @param onSelect gets the index of the selected topic
+ * @returns a sidebar component that renders the topics and subtopics if any.
+ */
 const SideBar: React.FC<SideBarProps> = ({ elements, isDarkMode, onSelect }) => {
   const [selected, setSelected] = useState<number | null>(null);
   const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>(false);

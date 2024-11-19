@@ -7,6 +7,9 @@ import SideBar from '../components/SideBar'
 import subjects from "./verbalSubjects.json"
 import { useDarkMode } from '../hooks/useDarkMode'
 
+/**
+ * @returns a layout with a navbar, sidebar, children and a footer.
+ */
 const layout = ({ children }: { children: React.ReactNode }) => { 
   const verbalSubjects = subjects.map((subject) => subject.title)
 
