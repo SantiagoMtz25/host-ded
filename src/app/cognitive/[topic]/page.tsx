@@ -53,7 +53,7 @@ const Page: React.FC = () => {
 
   return (
     <div className="w-full h-full px-2 text-justify flex flex-col">
-      <div className="w-full lg:w-[80%] justify-self-center self-center">
+      <div className="w-full lg:w-[80%] justify-self-center self-center mb-14">
         <TopicComponent />
       </div>
     </div>
