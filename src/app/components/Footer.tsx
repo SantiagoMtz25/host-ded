@@ -12,7 +12,7 @@ const FooterComponent: React.FC = () => {
 
   return (
     <>
-      <footer className={`${pathname !== '/' ? 'fixed bottom-0' : 'static'} rounded-none lg:rounded-t-2xl bg-slate-800 text-white w-[100%] lg:max-w-[1120px] flex flex-col lg:flex-row justify-between content-center px-4 py-3 gap-4 self-center text-base`}>
+      <footer className={`${pathname === '/' || pathname === '/credits' ? 'static' : 'fixed bottom-0'} rounded-none lg:rounded-t-2xl bg-slate-800 text-white w-[100%] lg:max-w-[1120px] flex flex-col lg:flex-row justify-between content-center px-4 py-3 gap-4 self-center text-base`}>
         <div className="flex flex-col sm:self-center lg:self-start">
           <p>Se prohíbe la reproducción total o parcial sin previo y expreso
             consentimiento por escrito.</p>

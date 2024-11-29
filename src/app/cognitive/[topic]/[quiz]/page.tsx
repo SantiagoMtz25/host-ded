@@ -46,7 +46,7 @@ const QuizPage: React.FC = () => {
   } 
 
   return (
-    <>
+    <div className="mb-24 w-full">
       <QuizComponent 
         title={quizTitle} 
         description={defaultDescription} 
@@ -54,7 +54,7 @@ const QuizPage: React.FC = () => {
         images={jsonToPass.images}
         responseImages={jsonToPass.responseImages}
       />
-    </>
+    </div>
   );  
 };
 
