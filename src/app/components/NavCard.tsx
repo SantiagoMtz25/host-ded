@@ -1,6 +1,10 @@
 "use client";
 
-import Image from "next/image";
+import React from "react";
+import Image, { StaticImageData } from "next/image";
+import BrainIcon from "/public/icons/faBrain.svg";
+import BookIcon from "/public/icons/faBook.svg";
+import CalculatorIcon from "/public/icons/faCalculator.svg";
 import { useDarkMode } from "../hooks/useDarkMode";
 
 export interface NavCardProps {
@@ -8,8 +12,14 @@ export interface NavCardProps {
   title: string;
   description: string;
   path: string;
-  icon: string;
+  icon: number; 
 }
+
+const iconMap: { [key: string]: StaticImageData } = {
+  "fa-solid fa-brain": BrainIcon,
+  "fa-solid fa-book": BookIcon,
+  "fa-solid fa-calculator": CalculatorIcon,
+};
 
 /**
  * @param num gets the number of the card
@@ -28,6 +38,8 @@ const NavCard: React.FC<NavCardProps> = ({
   icon,
 }) => {
   const [isDarkMode] = useDarkMode();
+
+  const iconImage = iconMap[icon];
 
   return (
     <>
@@ -52,7 +64,7 @@ const NavCard: React.FC<NavCardProps> = ({
         <div className="">
           <div className="h-[42px] fill-violet-500 w-12">
             <Image
-              src={icon}
+              src={iconImage}
               alt={`${title} icon`}
               width={42}
               height={42}

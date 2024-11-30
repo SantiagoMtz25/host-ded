@@ -4,6 +4,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import TECLogo from '/public/images/Tec.jpg';
+import CVALogo from '/public/images/CVA LOGOTIPO 2.jpg';
 
 interface NavBarProps {
   title?: string;
@@ -42,7 +44,7 @@ const NavBar: React.FC<NavBarProps> = ({}) => {
         </div> */}
         <Link href="/">
           <Image
-            src="/images/Tec.png"
+            src={TECLogo}
             alt={"Tecnológico de Monterrey"}
             width={250}
             height={50}
@@ -51,7 +53,7 @@ const NavBar: React.FC<NavBarProps> = ({}) => {
         </Link>
         <Link href="/">
           <Image
-            src="/images/CVA LOGOTIPO 2.png"
+            src={CVALogo}
             alt={"Centro Virtual de Aprendizaje"}
             width={250}
             height={50}

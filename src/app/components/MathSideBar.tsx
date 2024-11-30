@@ -66,7 +66,7 @@ const SideBar: React.FC<SideBarProps> = ({ elements, isDarkMode, onSelect }) => 
       </button>
 
       <div
-        className={`fixed top-0 left-0 h-full w-64 ${isDarkMode ? "bg-gray-800" : "bg-slate-50"} p-2 rounded-r-2xl md:rounded-2xl shadow-xl z-40 transition-transform duration-300 transform ${
+        className={`mb-14 fixed top-0 left-0 h-full w-64 ${isDarkMode ? "bg-gray-800" : "bg-slate-50"} p-2 rounded-r-2xl md:rounded-2xl shadow-xl z-40 transition-transform duration-300 transform ${
           isSidebarVisible ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 md:block layout-content-container flex flex-col min-w-80`}
       >

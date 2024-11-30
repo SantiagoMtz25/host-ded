@@ -18,7 +18,7 @@ const VerbalPage = () => {
   const [isDarkMode] = useDarkMode();
 
   return (
-    <div className="flex flex-row gap-4 w-full lg:max-w-[1120px] self-center px-2">
+    <div className="flex flex-row gap-4 w-full lg:max-w-[1120px] self-center px-2 mb-14">
       <MainSubjects
         title={verbal.title}
         description={verbal.description}

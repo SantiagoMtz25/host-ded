@@ -1,6 +1,7 @@
 "use client"; 
 
 import { usePathname } from "next/navigation";
+import Link from 'next/link';
 /**
  * Responsive footer component to display authors and privacy policies.
  * Plus a link to the credits page.
@@ -12,7 +13,7 @@ const FooterComponent: React.FC = () => {
 
   return (
     <>
-      <footer className={`${pathname === '/' || pathname === '/credits' ? 'static' : 'fixed bottom-0'} rounded-none lg:rounded-t-2xl bg-slate-800 text-white w-[100%] lg:max-w-[1120px] flex flex-col lg:flex-row justify-between content-center px-4 py-3 gap-4 self-center text-base`}>
+      <footer className={`${pathname === '/' || pathname === '/credits' ? 'static' : 'fixed bottom-0 z-50'} rounded-none lg:rounded-t-2xl bg-slate-800 text-white w-[100%] lg:max-w-[1120px] flex flex-col lg:flex-row justify-between content-center px-4 py-3 gap-4 self-center text-base`}>
         <div className="flex flex-col sm:self-center lg:self-start">
           <p>Se prohíbe la reproducción total o parcial sin previo y expreso
             consentimiento por escrito.</p>
@@ -23,7 +24,7 @@ const FooterComponent: React.FC = () => {
           <span className="border-r-2 border-gray-400"></span>
           <a target="_blank" href="https://tec.mx/es/aviso-privacidad-centro-virtual-aprendizaje">Aviso de Privacidad</a>
           <span className="border-r-2 border-gray-400"></span>
-          <a href="/credits">Créditos</a>
+          <Link href={`/credits`}>Créditos</Link>
         </div>
       </footer>
     </>

@@ -5,6 +5,8 @@ import FooterComponent from "../components/Footer";
 import GoBackBtn from "../components/GoBackBtn";
 import Image from "next/image";
 import { useDarkMode } from "../hooks/useDarkMode";
+import CreditImage from '/public/images/shutterstock_1520767361.jpg';
+import TECLogo from '/public/images/Tec.jpg';
 
 /**
  * Provides the credits page for the CVA, the people responsible for the
@@ -26,7 +28,7 @@ const Page = () => {
         <div className="layout-content-container lg:w-[90%] max-w-[1120px] flex flex-row flex-1">
           <div className="w-1/2 h-full hidden md:block">
             <Image
-              src="/images/shutterstock_1520767361.jpg"
+              src={CreditImage}
               alt="credits-banner"
               width={1120}
               height={2000}
@@ -52,7 +54,7 @@ const Page = () => {
                 <p className="text-[#111418] dark:text-gray-300 text-base font-normal leading-normal flex-1">
                   Producción del Instituto Tecnológico y de Estudios Superiores de Monterrey
                 </p>
-                <Image src="/images/Tec.png" alt="tec-logo" width={150} height={80} />
+                <Image src={TECLogo} alt="tec-logo" width={150} height={80} />
               </div>
 
               <h3 className="text-[#111418] dark:text-gray-200 text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">

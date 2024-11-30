@@ -11,14 +11,8 @@ interface Course {
   title: string;
   description: string;
   path: string;
-  icon: string;
+  icon: number;
 }
-
-const iconMap: { [key: string]: string } = {
-  "fa-solid fa-brain": "/icons/faBrain.svg",
-  "fa-solid fa-book": "/icons/faBook.svg",
-  "fa-solid fa-calculator": "/icons/faCalculator.svg",
-};
 
 /**
  * 
@@ -84,7 +78,7 @@ export default function Home() {
                 title={course.title}
                 description={course.description}
                 path={course.path}
-                icon={iconMap[course.icon]}
+                icon={course.icon}
               />
             ))}
           </div>
